@@ -1,8 +1,10 @@
+import { cn } from "@/app/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import { cn } from "@/app/lib/utils";
 import ContextProvider from "./Context/store";
+import "./globals.css";
+import Navbar from "./ui/Navbar";
+import Sidebar from "./ui/Sidebar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,7 +28,19 @@ export default function RootLayout({
           inter.className
         )}
       >
-        <ContextProvider>{children}</ContextProvider>
+        <ContextProvider>
+          <section className="h-screen w-screen">
+            <main className="h-full flex">
+              <Sidebar />
+              <div className="flex-grow max-w-full overflow-hidden">
+                <Navbar />
+                <div className="h-[calc(100vh-49px)] py-5 flex items-start justify-evenly overflow-y-auto">
+                  {children}
+                </div>
+              </div>
+            </main>
+          </section>
+        </ContextProvider>
       </body>
     </html>
   );

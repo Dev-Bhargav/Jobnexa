@@ -1,12 +1,18 @@
 "use client";
 
-import { ChevronsLeft, Landmark, Sheet, ShieldHalf, Train } from "lucide-react";
-import React, { useContext } from "react";
+import {
+  ChevronsLeft,
+  Home,
+  Landmark,
+  ShieldHalf,
+  Train
+} from "lucide-react";
+import Link from "next/link";
+import { useAppContext } from "../Context/store";
 import { cn } from "../lib/utils";
-import { AppContext } from "../Context/store";
 
 export default function Sidebar() {
-  let { navState, setNavState } = useContext(AppContext);
+  let { navState, setNavState } = useAppContext();
   function sideNavActive() {
     setNavState((preActive: boolean) => !preActive);
   }
@@ -27,6 +33,13 @@ export default function Sidebar() {
             <ChevronsLeft className=" cursor-pointer" onClick={sideNavActive} />
           </div>
           <div className="mt-3 flex flex-col">
+            <Link
+              href="/"
+              className="flex px-4 gap-3 hover:bg-[#eee] select-none"
+            >
+              <Home size={20} />
+              Home
+            </Link>
             <div className="flex px-4 gap-3 hover:bg-[#eee] select-none">
               <svg
                 width="20"
