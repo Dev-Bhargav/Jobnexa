@@ -1,4 +1,5 @@
 "use client";
+
 import { handleFormSubmit } from "@/lib/serverActions";
 import React, { useEffect, useRef } from "react";
 import {
@@ -12,6 +13,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
 
 export default function Editor() {
   let editorRef = useRef();
@@ -72,7 +74,7 @@ export default function Editor() {
   }
 
   return (
-    <section className="w-full mt-12">
+    <section className="w-full mt-7">
       <form
         id="job-blog"
         action={dispatch}
@@ -97,14 +99,15 @@ export default function Editor() {
             className="inputFeild"
           />
           <select name="category" placeholder="Category" className="inputFeild">
+            <option value="" disabled>- Select a category</option>
             <option value="Govt">Govt</option>
-            <option value="Govt">Railway</option>
-            <option value="Govt">Bank</option>
-            <option value="Govt">Defence</option>
+            <option value="Railway">Railway</option>
+            <option value="Bank">Bank</option>
+            <option value="Defence">Defence</option>
           </select>
         </div>
         <AlertDialog>
-          <AlertDialogTrigger>Open</AlertDialogTrigger>
+          <AlertDialogTrigger className="bg-black text-white font-medium px-3 py-1 rounded-md">Open</AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>

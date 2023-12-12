@@ -41,7 +41,7 @@ export default function Sidebar() {
               <Home size={20} />
               Home
             </Link>
-            <div className="flex px-4 gap-3 hover:bg-[#eee] select-none">
+            <Link href="/jobs/Govt" className="flex px-4 gap-3 hover:bg-[#eee] select-none">
               <svg
                 width="20"
                 height="19"
@@ -55,11 +55,11 @@ export default function Sidebar() {
                 />
               </svg>
               Govt Jobs
-            </div>
-            <div className="flex px-4 gap-3 hover:bg-[#eee] select-none">
+            </Link>
+            <Link href="/jobs/Railway" className="flex px-4 gap-3 hover:bg-[#eee] select-none">
               <Train size={20} />
               Railway Jobs
-            </div>
+            </Link>
             <div className="flex px-4 gap-3 hover:bg-[#eee] select-none">
               <Landmark size={20} />
               Bank Jobs

@@ -14,7 +14,7 @@ export async function handleFormSubmit(e: FormData, editorContent: EditorContent
     title: e.get("title"),
     description: e.get("description"),
     content: editorContent,
-    category: e.get("description"),
+    category: e.get("category"),
   };
   let response = await createBlog(uploadBlogDetails).catch((err) =>
     console.log(err.message)

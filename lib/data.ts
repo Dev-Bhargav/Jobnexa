@@ -16,6 +16,21 @@ export async function fetchJobs() {
   }
 }
 
+export async function fetchJobsByCategory(category: string) {
+  try {
+    const jobs = await prisma.jobs.findMany({
+      where: {
+        category: category,
+      },
+    });
+    return jobs;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
 export async function fetchJob(jobId: string) {
   try {
     const jobs = await prisma.jobs.findUnique({

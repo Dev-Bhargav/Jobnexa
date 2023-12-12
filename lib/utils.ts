@@ -10,7 +10,7 @@ interface htmlDataType {
   withHeading?: boolean;
   content?: Array<Array<string>> | Object;
   text?: string;
-  file?: Array<Object>
+  file?: Array<Object>;
 }
 
 type htmlObjectType = {
@@ -20,10 +20,12 @@ type htmlObjectType = {
 };
 
 export function convertHtml(htmlarray: Array<htmlObjectType>) {
-
   let newHtmlArray = htmlarray.map((html) => {
     switch (html.type) {
       case "header":
+        if(html.data.level === 2){
+          return `<h2 class="text-xl font-bold">${html.data.text}</h2>`
+        }
         return `<h${html.data.level}>${html.data.text}</h${html.data.level}>`;
       case "paragraph":
         return `<p>${html.data.text}</p>`;
@@ -37,25 +39,31 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
         const table = `<table class="border [&_td]:w-96 [&_td]:leading-5 [&_td]:px-4 [&_td]:py-2 max-w-full">
           <thead>
             <tr>
-              ${headers.map(
-                (head: string) =>
-                  `<th class="py-2 px-4  text-start text-xl">${head}</th>`
-              ).join('')}
+              ${headers
+                .map(
+                  (head: string) =>
+                    `<th class="py-2 px-4 text-start text-lg font-semibold">${head}</th>`
+                )
+                .join("")}
             </tr>
           </thead>
           <tbody>
-          ${content.map((row: Array<string>, rowIdx: Number) => {
-            const rows = `<tr class="border">
-             ${row.map((headers) => `<td key=${rowIdx} >${headers}</td>`).join(" ")}
+          ${content
+            .map((row: Array<string>, rowIdx: Number) => {
+              const rows = `<tr class="border">
+             ${row
+               .map((headers) => `<td key=${rowIdx} >${headers}</td>`)
+               .join(" ")}
              </tr>
             `;
-            return rows;
-          }).join(" ")}
+              return rows;
+            })
+            .join(" ")}
           </tbody>
         </table>`;
         return table;
       case "image":
-        return `<img src="${html.data.file.url}"  />`
+        return `<img src="${html.data.file.url}"  />`;
       default:
         return "work";
     }
