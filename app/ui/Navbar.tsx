@@ -3,7 +3,8 @@
 import { AlignJustify, Search } from "lucide-react";
 import Image from "next/image";
 import { useAppContext } from "../Context/store";
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
+
 
 export default function Navbar() {
   const { navState, setNavState } = useAppContext();
@@ -11,7 +12,7 @@ export default function Navbar() {
     setNavState((preActive: boolean) => !preActive);
   }
   return (
-    <nav className="w-full h-12 pr-4 pl-2 py-7 flex justify-between items-center border-b border-b-[#E2E2E1]">
+    <nav className="w-full h-12 pr-4 pl-2 flex justify-between items-center border-b border-b-[#E2E2E1]">
       <div className="flex items-center gap-2">
         <AlignJustify
           className={cn("text-[#737478] mx-1 cursor-pointer", {
@@ -81,7 +82,7 @@ export default function Navbar() {
             >
               <circle cx="3.5" cy="4" r="3.5" fill="#7CCA57" />
             </svg>
-            Subscribe
+            Subscribed
           </p>
         </div>
       </div>

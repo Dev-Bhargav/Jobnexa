@@ -1,6 +1,17 @@
 "use client";
+import { handleFormSubmit } from "@/lib/serverActions";
 import React, { useEffect, useRef } from "react";
-import { handleFormSubmit } from "../lib/serverActions";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 export default function Editor() {
   let editorRef = useRef();
@@ -63,8 +74,9 @@ export default function Editor() {
   return (
     <section className="w-full mt-12">
       <form
+        id="job-blog"
         action={dispatch}
-        className="min-h-screen flex flex-col items-center justify-between "
+        className="min-h-screen flex flex-col items-center justify-between"
       >
         <input
           name="title"
@@ -84,24 +96,29 @@ export default function Editor() {
             placeholder="Description"
             className="inputFeild"
           />
-          <select
-            name="category"
-            placeholder="Category"
-            className="inputFeild"
-          >
+          <select name="category" placeholder="Category" className="inputFeild">
             <option value="Govt">Govt</option>
             <option value="Govt">Railway</option>
             <option value="Govt">Bank</option>
             <option value="Govt">Defence</option>
-
           </select>
         </div>
-        <button
-          type="submit"
-          className="mt-3 text-[#FAFAFA] bg-black rounded-md text-lg font-medium px-4 py-0.5"
-        >
-          Save
-        </button>
+        <AlertDialog>
+          <AlertDialogTrigger>Open</AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete your
+                account and remove your data from our servers.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction type="submit" form="job-blog">Continue</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </form>
     </section>
   );

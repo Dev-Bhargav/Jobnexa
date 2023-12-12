@@ -12,7 +12,7 @@ export default function Page({
   const title = decodeURIComponent(params.slug);
   return (
     <>
-      <div className="flex flex-col gap-3 max-w-[20%]">
+      <div className="flex flex-col gap-3 max-w-[45%]">
         <h1 className="text-4xl w-[30ch] text-[#2D2B2B] font-black my-4">
           {title}
         </h1>

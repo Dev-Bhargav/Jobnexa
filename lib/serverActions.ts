@@ -1,5 +1,5 @@
 "use server";
-import { createBlog } from "../lib/data";
+import { createBlog } from "./data";
 
 
 interface EditorContent {

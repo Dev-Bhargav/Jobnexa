@@ -1,7 +1,7 @@
 import { Clock} from "lucide-react";
 import React from "react";
-import { fetchJobs } from "../lib/data";
 import Link from "next/link";
+import { fetchJobs } from "@/lib/data";
 
 export default async function Blog() {
   let jobs = await fetchJobs();

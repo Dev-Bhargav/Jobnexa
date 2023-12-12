@@ -9,7 +9,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useAppContext } from "../Context/store";
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
+
 
 export default function Sidebar() {
   let { navState, setNavState } = useAppContext();

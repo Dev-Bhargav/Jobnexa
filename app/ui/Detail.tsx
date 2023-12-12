@@ -1,6 +1,7 @@
+import { fetchJob } from "@/lib/data";
+import { convertHtml } from "@/lib/utils";
 import React from "react";
-import { fetchJob } from "../lib/data";
-import { convertHtml } from "../lib/utils";
+
 
 export default async function Detail(props: { id: string }) {
   const jobs = await fetchJob(props.id);
