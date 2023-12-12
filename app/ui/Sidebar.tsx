@@ -41,7 +41,7 @@ export default function Sidebar() {
               <Home size={20} />
               Home
             </Link>
-            <Link href="/jobs/Govt" className="flex px-4 gap-3 hover:bg-[#eee] select-none">
+            <Link href="/jobs/govt" className="flex px-4 gap-3 hover:bg-[#eee] select-none">
               <svg
                 width="20"
                 height="19"
@@ -56,18 +56,18 @@ export default function Sidebar() {
               </svg>
               Govt Jobs
             </Link>
-            <Link href="/jobs/Railway" className="flex px-4 gap-3 hover:bg-[#eee] select-none">
+            <Link href="/jobs/railway" className="flex px-4 gap-3 hover:bg-[#eee] select-none">
               <Train size={20} />
               Railway Jobs
             </Link>
-            <div className="flex px-4 gap-3 hover:bg-[#eee] select-none">
+            <Link href="/jobs/bank" className="flex px-4 gap-3 hover:bg-[#eee] select-none">
               <Landmark size={20} />
               Bank Jobs
-            </div>
-            <div className="flex px-4 gap-3 hover:bg-[#eee] select-none">
+            </Link>
+            <Link href="/jobs/defence" className="flex px-4 gap-3 hover:bg-[#eee] select-none">
               <ShieldHalf size={20} />
               Defence Jobs
-            </div>
+            </Link>
           </div>
         </div>
       </div>

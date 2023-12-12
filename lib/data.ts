@@ -16,11 +16,35 @@ export async function fetchJobs() {
   }
 }
 
+export async function quickNavFetch() {
+  try {
+    const jobs = await prisma.jobs.findMany({
+      select: {
+        id: true,
+        title: true,
+        category: true,
+      },
+      orderBy: {
+        created_at: "desc",
+      },
+      take: 4,
+    });
+    return jobs;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
 export async function fetchJobsByCategory(category: string) {
   try {
     const jobs = await prisma.jobs.findMany({
       where: {
         category: category,
+      },
+      orderBy: {
+        created_at: "desc",
       },
     });
     return jobs;
@@ -80,4 +104,3 @@ export async function createBlog<Type extends BlogContent>(data: Type) {
     prisma.$disconnect;
   }
 }
-

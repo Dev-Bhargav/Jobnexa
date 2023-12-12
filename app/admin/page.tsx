@@ -100,10 +100,10 @@ export default function Editor() {
           />
           <select name="category" placeholder="Category" className="inputFeild">
             <option value="" disabled>- Select a category</option>
-            <option value="Govt">Govt</option>
-            <option value="Railway">Railway</option>
-            <option value="Bank">Bank</option>
-            <option value="Defence">Defence</option>
+            <option value="govt">Govt</option>
+            <option value="railway">Railway</option>
+            <option value="bank">Bank</option>
+            <option value="defence">Defence</option>
           </select>
         </div>
         <AlertDialog>
