@@ -44,6 +44,7 @@ type BlogContent = {
   slug: string;
   content: Content;
   date: string;
+  category: string;
 };
 
 export async function createBlog<Type extends BlogContent>(data: Type) {
@@ -53,6 +54,7 @@ export async function createBlog<Type extends BlogContent>(data: Type) {
         title: data.title,
         description: data.description,
         content: JSON.stringify(data.content),
+        category: data.category,
       },
     });
     return "Success";

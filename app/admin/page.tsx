@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { handleFormSubmit } from "../lib/serverActions";
-// import { ImageUploader } from "../lib/data";
 
 export default function Editor() {
   let editorRef = useRef();
@@ -41,7 +40,7 @@ export default function Editor() {
                   method: "POST",
                   body: formData,
                 });
-                response = await response.json()
+                response = await response.json();
                 return response;
               },
             },
@@ -85,6 +84,17 @@ export default function Editor() {
             placeholder="Description"
             className="inputFeild"
           />
+          <select
+            name="category"
+            placeholder="Category"
+            className="inputFeild"
+          >
+            <option value="Govt">Govt</option>
+            <option value="Govt">Railway</option>
+            <option value="Govt">Bank</option>
+            <option value="Govt">Defence</option>
+
+          </select>
         </div>
         <button
           type="submit"
