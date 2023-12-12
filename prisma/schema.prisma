@@ -15,4 +15,5 @@ model Jobs {
   title       String
   description String
   created_at  DateTime @default(now())
+  content     Json
 }

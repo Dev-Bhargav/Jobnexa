@@ -1,9 +1,8 @@
 "use client"
 
 import { AlignJustify, Search } from "lucide-react";
-import React, { useContext } from "react";
 import Image from "next/image";
-import { AppContext, useAppContext } from "../Context/store";
+import { useAppContext } from "../Context/store";
 import { cn } from "../lib/utils";
 
 export default function Navbar() {

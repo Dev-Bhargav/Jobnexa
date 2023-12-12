@@ -12,11 +12,11 @@ export default function Page({
   const title = decodeURIComponent(params.slug);
   return (
     <>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 max-w-[20%]">
         <h1 className="text-4xl w-[30ch] text-[#2D2B2B] font-black my-4">
           {title}
         </h1>
-        <Detail/>
+        <Detail id={params.id}/>
       </div>
       <Quicknav />
     </>
