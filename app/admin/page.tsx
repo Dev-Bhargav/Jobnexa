@@ -1,7 +1,5 @@
-"use client";
-
-import { handleFormSubmit } from "@/lib/serverActions";
-import React, { useEffect, useRef } from "react";
+import React from 'react'
+import Editor from "@/components/Editor"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -13,66 +11,13 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
+import { handleFormSubmit } from '@/lib/serverActions';
 
-export default function Editor() {
-  let editorRef = useRef();
-
-  const initializeEditor = async () => {
-    const EditorJS = (await import("@editorjs/editorjs")).default;
-    const Header = (await import("@editorjs/header")).default;
-    const Embed = (await import("@editorjs/embed")).default;
-    const Table = (await import("@editorjs/table")).default;
-    const List = (await import("@editorjs/list")).default;
-    const LinkTool = (await import("@editorjs/link")).default;
-    const Image = (await import("@editorjs/image")).default;
-
-    const editor = new EditorJS({
-      holder: "editor",
-      onReady: () => {
-        editorRef.current = editor;
-      },
-      inlineToolbar: true,
-      tools: {
-        header: Header,
-        linkTool: LinkTool,
-        list: List,
-        table: {
-          class: Table,
-          inlineToolbar: true,
-        },
-        embed: Embed,
-        image: {
-          class: Image,
-          config: {
-            uploader: {
-              async uploadByFile(file) {
-                let formData = new FormData();
-                formData.append("file", file);
-                let response = await fetch("http://localhost:3000/api/upload", {
-                  method: "POST",
-                  body: formData,
-                });
-                response = await response.json();
-                return response;
-              },
-            },
-          },
-        },
-      },
-      placeholder: "Type here to write your post...",
-    });
-  };
-
-  useEffect(() => {
-    initializeEditor();
-  }, []);
-
+export default function Page() {
   async function dispatch(e) {
     let editorContent = await editorRef.current?.save();
     handleFormSubmit(e, editorContent);
   }
-
   return (
     <section className="w-full mt-7">
       <form
@@ -86,11 +31,7 @@ export default function Editor() {
           placeholder="Post Title"
           className="inputFeild"
         ></input>
-        <div
-          id="editor"
-          ref={editorRef}
-          className="border w-full min-h-[600px] my-4"
-        ></div>
+        <Editor/>
         <div className="flex flex-col gap-4">
           <input
             type="text"
@@ -124,5 +65,5 @@ export default function Editor() {
         </AlertDialog>
       </form>
     </section>
-  );
+  )
 }

@@ -12,7 +12,7 @@ export default function Home({
     <>
       <div className="flex flex-col gap-3">
         <h1 className="text-4xl  text-[#2D2B2B] font-black my-4">
-          Latest Jobs
+          Latest {params.category.charAt(0).toUpperCase() + params.category.slice(1)} Jobs
         </h1>
         <TypeBlog category={params.category}/>
       </div>
