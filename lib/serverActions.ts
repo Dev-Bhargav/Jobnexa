@@ -1,6 +1,11 @@
 "use server";
+
+
 import { createBlog } from "./data";
 import nodemailer from "nodemailer";
+import { prisma } from "./prisma";
+import { randomUUID } from "crypto";
+import { z } from "zod";
 
 interface EditorContent {
   time: number;
@@ -22,9 +27,7 @@ export async function handleFormSubmit(
     console.log(err.message)
   );
 
-  const subscribers = [
-    "bhargavdinesh5406@gmail.com",
-  ];
+  const subscribers = ["bhargavdinesh5406@gmail.com"];
 
   // Send email to each subscriber
   for (const subscriber of subscribers) {
@@ -363,16 +366,12 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export async function sendMail(
-  to: string,
-  subject: string,
-  template: string
-) {
+export async function sendMail(to: string, subject: string, template: string) {
   const mailOptions = {
     from: "maxspidy5406@gmail.com",
     to,
     subject,
-    html: template,
+    text: template,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
@@ -383,4 +382,74 @@ export async function sendMail(
       return true;
     }
   });
+}
+
+const FormSchema = z.object({
+  email: z.string().email({ message: "Invalid Email" }),
+  name: z.string().min(3, { message: "Minimum 3 chracters" }),
+});
+
+export type State = {
+  errors?: {
+    email?: string[],
+    name?: string[]
+  };
+  message?: string | null;
+};
+
+export async function subscribeUser(prevState: State, formdata: FormData) {
+  const email = formdata.get("email");
+  const name = formdata.get("name");
+
+  const validateData = FormSchema.safeParse({
+    email,
+    name,
+  });
+
+  if (!validateData.success) {
+    return {
+      errors: validateData.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to Create Invoice.",
+    };
+  }
+
+  return {
+    message: null,
+    errors: undefined,
+  }
+
+  // try {
+  //   const user = await prisma.user.create({
+  //     data: {
+  //       email: formdata.get("email") as string,
+  //       name: formdata.get("name") as string,
+  //     },
+  //   });
+
+  //   const token = await prisma.activatToken.create({
+  //     data: {
+  //       token: `${randomUUID()}`.replace(/-/g, ""),
+  //       userId: user.id,
+  //     },
+  //   });
+
+  //   await sendMail(
+  //     "bhargavdinesh5406@gmail.com",
+  //     "Email Verification",
+  //     `http://localhost:3000/api/subscribe/${token.token}`
+  //   );
+  //   return {
+  //     message: null,
+  //     errors: undefined,
+  //   }
+
+  // } catch (err) {
+  //   console.log(err)
+  //   return {
+  //     message: "Database Under Maintenance",
+  //     errors: undefined,
+  //   };
+  // } finally {
+  //   prisma.$disconnect();
+  // }
 }
