@@ -80,7 +80,6 @@ export default function Editor() {
     let editorContent = await (editorRef.current as any)?.save();
     handleFormSubmit(e, editorContent);
   }
-
   return (
     <section className="w-full mt-12">
       <form
@@ -135,5 +134,5 @@ export default function Editor() {
         </AlertDialog>
       </form>
     </section>
-  );
+  )
 }
