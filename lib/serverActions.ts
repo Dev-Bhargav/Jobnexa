@@ -377,7 +377,6 @@ export async function sendMail(to: string, subject: string, template: string) {
     if (error) {
       throw new Error(error.message);
     } else {
-      console.log("Email Sent");
       return true;
     }
   });

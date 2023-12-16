@@ -13,7 +13,7 @@ export default function Newsletter() {
 
   const handleButtonClick = () => {
     setIsOpen((prevState) => {
-      console.log(prevState)
+
       if (prevState) {
         setTimeout(() => {
           modalRef.current && (modalRef.current.dataset.hidden = "true");
@@ -76,15 +76,15 @@ export default function Newsletter() {
                 {error}
               </p>
             ))}
-          {state.message === null && (
-            <VerficationModal
-              isOpen={isOpen}
-              handleButtonClick={handleButtonClick}
-              fowardedRef={modalRef}
-              verifyMail={state.email ? state.email : "you email"}
-            />
-          )}
-          <FormSubmit verifyEmail={handleButtonClick} state={state}/>
+
+          <VerficationModal
+            isOpen={isOpen}
+            handleButtonClick={handleButtonClick}
+            fowardedRef={modalRef}
+            verifyMail={state.email ? state.email : "your email"}
+          />
+
+          <FormSubmit verifyEmail={handleButtonClick} state={state} />
         </div>
       </form>
     </div>
