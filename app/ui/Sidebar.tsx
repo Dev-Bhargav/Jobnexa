@@ -22,14 +22,18 @@ export default function Sidebar() {
         )}
       ></div>
       <div
+      // w-[35vw] xl:w-[250px] h-full bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] duration-300 xl:relative absolute overflow-hidden pointer-events-auto
+      // w-[200px] bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] duration-300 relative overflow-hidden
         className={cn(
-          "w-[35vw] xl:w-[200px] h-full bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] duration-300 xl:relative absolute overflow-hidden pointer-events-auto",
+          "w-[35vw] flex-shrink-0 xl:w-[200px] h-full bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] duration-300 xl:relative absolute overflow-hidden pointer-events-auto",
           {
-            "w-0": navState,
+            "xl:w-0": navState,
           }
         )}
       >
-        <div className="w-[35vw] xl:w-[200px] absolute">
+        {/* w-[35vw] xl:w-[250px] h-full absolute  */}
+        {/* w-[200px] absolute */}
+        <div className="w-[35vw] xl:w-[200px] h-full absolute  ">
           <div className="flex flex-col text-[#6F6D6D]">
             <div className="flex py-4 px-4 justify-between items-center">
               <h1 className="text-sm font-semibold tracking-wide">
