@@ -10,7 +10,7 @@ export default function Home({
   }) {
   return (
     <>
-      <div className="flex flex-col gap-3">
+      <div className="w-1/2 flex flex-col gap-3">
         <h1 className="text-4xl  text-[#2D2B2B] font-black my-4">
           Latest {params.category.charAt(0).toUpperCase() + params.category.slice(1)} Jobs
         </h1>
