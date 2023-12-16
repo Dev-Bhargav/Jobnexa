@@ -12,8 +12,8 @@ export default function Page({
   const title = decodeURIComponent(params.slug);
   return (
     <>
-      <div className="w-1/2 flex flex-col gap-3">
-        <h1 className="text-4xl w-[30ch] text-[#2D2B2B] font-black my-4">
+      <div className="w-4/5 max-w-[920px] min-w-[500px] flex flex-col gap-3">
+        <h1 className="text-4xl  text-[#2D2B2B] font-black my-4">
           {title}
         </h1>
         <Detail id={params.id}/>

@@ -15,7 +15,7 @@ export default function Sidebar() {
     <>
       <div
         className={cn(
-          "h-full w-full absolute pointer-events-none 2xl:hidden",
+          "h-full w-full absolute pointer-events-none xl:hidden",
           {
             "bg-black/50 backdrop-blur-[2px]": !navState,
           }
@@ -23,14 +23,14 @@ export default function Sidebar() {
       ></div>
       <div
         className={cn(
-          "w-[200px] h-full bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] duration-300 md:relative absolute overflow-hidden pointer-events-auto",
+          "w-[35vw] xl:w-[200px] h-full bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] duration-300 xl:relative absolute overflow-hidden pointer-events-auto",
           {
             "w-0": navState,
           }
         )}
       >
-        <div className="w-[200px] absolute">
-          <div className=" flex flex-col text-[#6F6D6D]">
+        <div className="w-[35vw] xl:w-[200px] absolute">
+          <div className="flex flex-col text-[#6F6D6D]">
             <div className="flex py-4 px-4 justify-between items-center">
               <h1 className="text-sm font-semibold tracking-wide">
                 CATEGORIES

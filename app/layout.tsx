@@ -34,9 +34,9 @@ export default function RootLayout({
           <section className="h-screen w-screen">
             <main className="h-full flex">
               <Sidebar />
-              <div className="flex-grow max-w-full overflow-x-hidden md:overflow-y-hidden">
+              <div className="flex-grow max-w-full overflow-x-hidden xl:overflow-y-hidden">
                 <Navbar />
-                <div className=" py-5 flex flex-col items-center justify-evenly overflow-y-auto md:flex-row md:items-start md:h-[calc(100vh-49px)]">
+                <div className="py-5 flex flex-col items-center justify-evenly overflow-y-auto xl:flex-row xl:items-start xl:h-[calc(100vh-49px)]">
                   {children}
                 </div>
               </div>
