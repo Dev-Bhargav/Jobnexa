@@ -38,10 +38,10 @@ export default function Newsletter() {
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="flex flex-col items-center gap-1">
-        <h1 className="font-black text-3xl text-[#2D2B2B]">
+        <h1 className="font-black text-3xl xs:leading-[34px] pb-1 text-center text-[#2D2B2B]">
           Get Latest Job Notification
         </h1>
-        <p className="w-[70%] text-[#9D9D9D] text-center leading-5">
+        <p className="w-[80%] sm:w-[70%] text-[#9D9D9D] text-center leading-5">
           Get instant notification when new post is uploaded through email and
           it s free
         </p>
@@ -52,7 +52,7 @@ export default function Newsletter() {
             type="text"
             name="name"
             placeholder="Name"
-            className={cn("py-1.5 rounded pl-2 w-80 text-[15px] outline-none  border border-[#dfdfdc] bg-[#f7f7f4] placeholder:text-[#898989]", {
+            className={cn("py-1.5 rounded pl-2 xs:w-64 sm:w-80 text-[15px] outline-none border border-[#dfdfdc] bg-[#f7f7f4] placeholder:text-[#898989]", {
               "border-red-500" : state.errors?.name
             })}
             aria-describedby="name-error"
@@ -69,8 +69,8 @@ export default function Newsletter() {
             type="text"
             name="email"
             placeholder="Enter the email..."
-            className={cn("py-1.5 rounded pl-2 w-80 text-[15px] outline-none  border border-[#dfdfdc] bg-[#f7f7f4] placeholder:text-[#898989]", {
-              "border-red-500" : state.errors?.email
+            className={cn("py-1.5 rounded pl-2 xs:w-64 sm:w-80 text-[15px] outline-none border border-[#dfdfdc] bg-[#f7f7f4] placeholder:text-[#898989]", {
+              "border-red-500" : state.errors?.name
             })}
             aria-describedby="email.error"
           />

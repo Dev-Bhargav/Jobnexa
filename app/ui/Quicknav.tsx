@@ -10,7 +10,7 @@ export default async function Quicknav() {
   }
 
   return (
-    <div className="w-4/5 max-w-[920px] min-w-[500px] xl:w-1/2 2xl:max-w-[620px] mt-20 border rounded-sm border-[rgb(226,226,225)] bg-[#FBFBFB] ">
+    <div className="w-4/5 max-w-[920px] min-w-[330px] xl:w-1/2 2xl:max-w-[620px] mt-20 border rounded-sm border-[rgb(226,226,225)] bg-[#FBFBFB] ">
       <div className="mt-10 xl:w-full flex flex-col items-center">
         <Newsletter />
         <div className="w-full px-4 flex flex-col items-center my-5">

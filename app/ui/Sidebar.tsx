@@ -17,23 +17,20 @@ export default function Sidebar() {
         className={cn(
           "h-full w-full absolute pointer-events-none xl:hidden",
           {
-            "bg-black/50 backdrop-blur-[2px]": !navState,
+            "bg-black/50 backdrop-blur-[2px] pointer-events-auto": !navState,
           }
         )}
       ></div>
       <div
-      // w-[35vw] xl:w-[250px] h-full bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] duration-300 xl:relative absolute overflow-hidden pointer-events-auto
-      // w-[200px] bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] duration-300 relative overflow-hidden
+
         className={cn(
-          "w-[35vw] flex-shrink-0 xl:w-[200px] h-full bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] duration-300 xl:relative absolute overflow-hidden pointer-events-auto",
+          "w-[45vw] sm:w-[30vw] xl:w-[200px] h-full flex-shrink-0 bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] transition[min-width] duration-300 xl:relative absolute overflow-hidden pointer-events-auto",
           {
-            "xl:w-0": navState,
+            "xl:w-0 sm:w-0 w-0": navState,
           }
         )}
       >
-        {/* w-[35vw] xl:w-[250px] h-full absolute  */}
-        {/* w-[200px] absolute */}
-        <div className="w-[35vw] xl:w-[200px] h-full absolute  ">
+        <div className="w-[45vw] sm:w-[30vw] xl:w-[200px] h-full absolute  ">
           <div className="flex flex-col text-[#6F6D6D]">
             <div className="flex py-4 px-4 justify-between items-center">
               <h1 className="text-sm font-semibold tracking-wide">

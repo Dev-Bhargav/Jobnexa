@@ -26,13 +26,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background antialiased",
+          "min-h-screen bg-background antialiased overflow-x-hidden",
           inter.className
         )}
       >
         <ContextProvider>
-          <section className="h-screen w-screen">
-            <main className="h-full flex">
+          <section className="min-h-screen">
+            <main className="min-h-screen flex">
               <Sidebar />
               <div className="flex-grow max-w-full overflow-x-hidden xl:overflow-y-hidden">
                 <Navbar />

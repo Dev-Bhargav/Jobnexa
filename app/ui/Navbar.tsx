@@ -12,7 +12,7 @@ export default function Navbar() {
     setNavState((preActive: boolean) => !preActive);
   }
   return (
-    <nav className="w-full py-1.5 pr-4 pl-2 flex justify-between items-center border-b border-b-[#E2E2E1]">
+    <nav className="w-full py-1.5 pr-4 pl-2 flex justify-between items-center border-b border-b-[#E2E2E1] bg-white">
       <div className="flex items-center gap-2">
         <AlignJustify
           className={cn("text-[#737478] mx-1 cursor-pointer", {
@@ -61,13 +61,6 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="relative rounded-sm flex items-center">
-        {/* <Search size={20} className="absolute ml-2 text-[#737478]" />
-        <input
-          type="search"
-          disabled
-          placeholder="Search Jobs..."
-          className="border w-96 px-9 py-2 bg-[#F2F2F2] text-sm rounded-sm placeholder:text-[#737478] placeholder:text-opacity-70 outline-none"
-        /> */}
       </div>
       <div className="flex items-end gap-2">
         <div className="flex flex-col items-start">
