@@ -6,7 +6,6 @@ export default function FormSubmit(props: {
   state: State,
   verifyEmail: () => void
 }) {
-  console.log(props)
   const {state, verifyEmail} = props
 
   useEffect(() => {
@@ -15,7 +14,7 @@ export default function FormSubmit(props: {
       verifyEmail();
     }
     {
-      state.userFound && toast({ title: "Subscribe Alredy" });
+      state.userFound && toast({ title: 'This email address is already subscribed.', variant: "success"});
     }
   }, [state]);
 

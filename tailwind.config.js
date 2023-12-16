@@ -86,9 +86,11 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         overlayShow: "overlayShow 200ms cubic-bezier(0.16, 1, 0.3, 1)",
-        overlayClose: "overlayClose 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        overlayClose:
+          "overlayClose 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
         contentShow: "contentShow 200ms cubic-bezier(0.16, 1, 0.3, 1)",
-        contentClose: "contentClose 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        contentClose:
+          "contentClose 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards",
       },
     },
   },

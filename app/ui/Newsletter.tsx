@@ -1,11 +1,11 @@
 "use client";
 
 import { State, subscribeUser } from "@/lib/serverActions";
-import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
+import { useRef, useState } from "react";
 import { useFormState } from "react-dom";
-import VerficationModal from "./VerficationModal";
-import { toast } from "@/components/ui/use-toast";
 import FormSubmit from "./FormSubmit";
+import VerficationModal from "./VerficationModal";
 
 export default function Newsletter() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -52,7 +52,9 @@ export default function Newsletter() {
             type="text"
             name="name"
             placeholder="Name"
-            className=" py-1.5 rounded-l pl-2 md:w-80 text-[15px] outline-none  border border-[#dfdfdc] bg-[#f7f7f4] placeholder:text-[#898989]"
+            className={cn("py-1.5 rounded pl-2 w-80 text-[15px] outline-none  border border-[#dfdfdc] bg-[#f7f7f4] placeholder:text-[#898989]", {
+              "border-red-500" : state.errors?.name
+            })}
             aria-describedby="name-error"
           />
           <div id="name-error" aria-live="polite" aria-atomic="true">
@@ -67,7 +69,9 @@ export default function Newsletter() {
             type="text"
             name="email"
             placeholder="Enter the email..."
-            className=" py-1.5 rounded-l pl-2 md:w-80 text-[15px] outline-none  border border-[#dfdfdc] bg-[#f7f7f4] placeholder:text-[#898989]"
+            className={cn("py-1.5 rounded pl-2 w-80 text-[15px] outline-none  border border-[#dfdfdc] bg-[#f7f7f4] placeholder:text-[#898989]", {
+              "border-red-500" : state.errors?.email
+            })}
             aria-describedby="email.error"
           />
           {state.errors?.email &&
