@@ -20,7 +20,9 @@ type htmlObjectType = {
 };
 
 export function convertHtml(htmlarray: Array<htmlObjectType>) {
-  let newHtmlArray = htmlarray.map((html) => {
+        //! Make Proper Error
+
+  let newHtmlArray = htmlarray.map((html: any) => {
     switch (html.type) {
       case "header":
         if (html.data.level === 2) {
@@ -30,6 +32,10 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
       case "paragraph":
         return `<p>${html.data.text}</p>`;
       case "table":
+        //! Make Proper Error
+
+        if (!html.data.content) {
+        }
         let headers = html.data.content[0];
         headers = headers.filter((value: string) => value !== "");
 

@@ -62,7 +62,10 @@ export async function fetchJob(jobId: string) {
         id: jobId,
       },
     });
-
+  //! Make Proper Error
+    if(!jobs){
+      throw new Error("Job not found: ");
+    }
     return jobs;
   } catch (err) {
     console.log(err);

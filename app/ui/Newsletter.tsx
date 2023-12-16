@@ -1,9 +1,11 @@
 "use client";
 
-import { subscribeUser } from "@/lib/serverActions";
-import { useRef, useState } from "react";
-import { useFormState } from 'react-dom';
+import { State, subscribeUser } from "@/lib/serverActions";
+import { useEffect, useRef, useState } from "react";
+import { useFormState } from "react-dom";
 import VerficationModal from "./VerficationModal";
+import { toast } from "@/components/ui/use-toast";
+import FormSubmit from "./FormSubmit";
 
 export default function Newsletter() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -11,11 +13,12 @@ export default function Newsletter() {
 
   const handleButtonClick = () => {
     setIsOpen((prevState) => {
+      console.log(prevState)
       if (prevState) {
         setTimeout(() => {
           modalRef.current && (modalRef.current.dataset.hidden = "true");
         }, 401);
-        return !prevState
+        return !prevState;
       }
 
       modalRef.current && (modalRef.current.dataset.hidden = "false");
@@ -23,12 +26,14 @@ export default function Newsletter() {
     });
   };
 
-  const initialState = {
-    errors: undefined,
-    message: "Initial",
+  const initialState: State = {
+    errors: {},
+    message: "Inital Message",
+    userFound: false,
+    email: "",
   };
 
-  const [state, dispatch] = useFormState(subscribeUser, initialState)
+  const [state, dispatch] = useFormState(subscribeUser, initialState);
 
   return (
     <div className="flex flex-col items-center gap-4">
@@ -41,7 +46,7 @@ export default function Newsletter() {
           it s free
         </p>
       </div>
-      <form action={dispatch} className="flex items-start">
+      <form action={dispatch} id="subscribeMail" className="flex items-start">
         <div className="flex flex-col gap-2 items-start">
           <input
             type="text"
@@ -53,7 +58,7 @@ export default function Newsletter() {
           <div id="name-error" aria-live="polite" aria-atomic="true">
             {state.errors?.name &&
               state.errors.name.map((error: string) => (
-                <p className="  text-sm text-red-500" key={error}>
+                <p className="text-sm text-red-500" key={error}>
                   {error}
                 </p>
               ))}
@@ -66,21 +71,20 @@ export default function Newsletter() {
             aria-describedby="email.error"
           />
           {state.errors?.email &&
-            state.errors.email.map((error) => (
+            state.errors?.email.map((error) => (
               <p className="text-sm text-red-500" key={error}>
                 {error}
               </p>
             ))}
           {state.message === null && (
-            <VerficationModal isOpen={isOpen}  handleButtonClick={handleButtonClick} fowardedRef={modalRef}  />
+            <VerficationModal
+              isOpen={isOpen}
+              handleButtonClick={handleButtonClick}
+              fowardedRef={modalRef}
+              verifyMail={state.email ? state.email : "you email"}
+            />
           )}
-          <button
-            type="submit"
-            onClick={handleButtonClick}
-            className="bg-black text-white py-2 rounded-lg px-4 flex font-medium border-[#B3B3B3] border"
-          >
-            Subscribe
-          </button>
+          <FormSubmit verifyEmail={handleButtonClick} state={state}/>
         </div>
       </form>
     </div>

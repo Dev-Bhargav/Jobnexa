@@ -4,6 +4,10 @@ import Newsletter from "./Newsletter";
 
 export default async function Quicknav() {
   const jobs = await quickNavFetch();
+  //! Make Proper Error
+  if(!jobs){
+    throw new Error("No jobs available")
+  }
 
   return (
     <div className="bg-[#FBFBFB] w-max mt-20 border rounded-sm border-[rgb(226,226,225)]">

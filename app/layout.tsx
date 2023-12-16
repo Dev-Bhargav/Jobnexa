@@ -5,6 +5,7 @@ import ContextProvider from "./Context/store";
 import "./globals.css";
 import Navbar from "@/app/ui/Navbar";
 import Sidebar from "@/app/ui/Sidebar";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({
             </main>
           </section>
         </ContextProvider>
+        <Toaster />
       </body>
     </html>
   );

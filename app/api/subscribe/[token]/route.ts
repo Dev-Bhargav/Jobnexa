@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 
@@ -12,31 +13,30 @@ export async function GET(
     };
   }
 ) {
-
   const { token } = params;
 
   const user = await prisma.user.findFirst({
     where: {
-        ActivatToken: {
-          some: {
-            AND: [
-              {
-                createdAt: {
-                  gt: new Date(Date.now() - 24 * 60 * 60 * 1000),
-                },
+      ActivatToken: {
+        some: {
+          AND: [
+            {
+              createdAt: {
+                gt: new Date(Date.now() - 24 * 60 * 60 * 1000),
               },
-              { token },
-            ],
-          },
+            },
+            { token },
+          ],
         },
       },
+    },
   });
 
   if (!user) {
     throw new Error("Somthing went wrong");
   }
 
-  let updatedUser = await prisma.user.update({
+  await prisma.user.update({
     where: {
       id: user.id,
     },
@@ -45,6 +45,12 @@ export async function GET(
     },
   });
 
-  prisma.$disconnect()
-  redirect("/")
+  await prisma.activatToken.delete({
+    where: {
+      token,
+    },
+  });
+  prisma.$disconnect();
+  revalidatePath("/");
+  redirect("/");
 }

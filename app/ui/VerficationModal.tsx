@@ -6,18 +6,19 @@ import { X } from "lucide-react";
 export default function VerficationModal({
   isOpen,
   fowardedRef,
-  handleButtonClick
+  handleButtonClick,
+  verifyMail
 }: {
   isOpen: boolean,
   fowardedRef: React.Ref<HTMLDivElement>,
-  handleButtonClick: () => void
+  handleButtonClick: () => void,
+  verifyMail: string
 }) {
-
   return (
     <>
       <div
         data-state={isOpen ? "open" : "closed"}
-        data-hidden={"false"}
+        data-hidden={"true"}
         ref={fowardedRef}
         className="fixed inset-0 bg-background/80 backdrop-blur-sm data-[hidden=true]:hidden data-[state=open]:animate-overlayShow data-[state=closed]:animate-overlayClose"
       >
@@ -38,11 +39,11 @@ export default function VerficationModal({
                 <h1 className="font-black text-4xl">Confirm Your Email...</h1>
                 <p>
                   We have sent verification email to
-                  <strong> maxspidy5406@gmail.com</strong>
+                  <strong> {verifyMail}</strong>
                 </p>
               </div>
               <p>
-                Unlock daily job notifications! Click on 'Verify Email' to
+                Unlock daily job notifications! Click on {"Verify Email"} to
                 kickstart your job search journey
               </p>
               <Button>Resend</Button>

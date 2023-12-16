@@ -1,6 +1,5 @@
 "use server";
 
-
 import { createBlog } from "./data";
 import nodemailer from "nodemailer";
 import { prisma } from "./prisma";
@@ -391,19 +390,19 @@ const FormSchema = z.object({
 
 export type State = {
   errors?: {
-    email?: string[],
-    name?: string[]
+    email?: string[];
+    name?: string[];
   };
-  message?: string | null;
+  message?: string | null,
+  userFound?: boolean | null,
+  email?: string 
+
 };
 
 export async function subscribeUser(prevState: State, formdata: FormData) {
-  const email = formdata.get("email");
-  const name = formdata.get("name");
-
   const validateData = FormSchema.safeParse({
-    email,
-    name,
+    email: formdata.get("email"),
+    name: formdata.get("name"),
   });
 
   if (!validateData.success) {
@@ -413,43 +412,54 @@ export async function subscribeUser(prevState: State, formdata: FormData) {
     };
   }
 
-  return {
-    message: null,
-    errors: undefined,
+  const { email, name } = validateData.data;
+
+  try {
+    const alredyUser = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    if (!alredyUser) {
+      const user = await prisma.user.create({
+        data: {
+          email,
+          name,
+        },
+      });
+
+      const token = await prisma.activatToken.create({
+        data: {
+          token: `${randomUUID()}`.replace(/-/g, ""),
+          userId: user.id,
+        },
+      });
+
+      await sendMail(
+        email,
+        "Email Verification",
+        `http://localhost:3000/api/subscribe/${token.token}`
+      );
+      return {
+        message: null,
+        errors: undefined,
+        email
+      };
+    }else{
+      return {
+        message: "Already User",
+        errors: {email: undefined, name: undefined},
+        userFound: true,
+      }
+    }
+  } catch (err) {
+    console.log(err);
+    return {
+      message: "Database Under Maintenance",
+      errors: undefined,
+    };
+  } finally {
+    prisma.$disconnect();
   }
-
-  // try {
-  //   const user = await prisma.user.create({
-  //     data: {
-  //       email: formdata.get("email") as string,
-  //       name: formdata.get("name") as string,
-  //     },
-  //   });
-
-  //   const token = await prisma.activatToken.create({
-  //     data: {
-  //       token: `${randomUUID()}`.replace(/-/g, ""),
-  //       userId: user.id,
-  //     },
-  //   });
-
-  //   await sendMail(
-  //     "bhargavdinesh5406@gmail.com",
-  //     "Email Verification",
-  //     `http://localhost:3000/api/subscribe/${token.token}`
-  //   );
-  //   return {
-  //     message: null,
-  //     errors: undefined,
-  //   }
-
-  // } catch (err) {
-  //   console.log(err)
-  //   return {
-  //     message: "Database Under Maintenance",
-  //     errors: undefined,
-  //   };
-  // } finally {
-  //   prisma.$disconnect();
-  // }
 }

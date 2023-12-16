@@ -2,10 +2,13 @@ import { fetchJob } from "@/lib/data";
 import { convertHtml } from "@/lib/utils";
 import React from "react";
 
-
 export default async function Detail(props: { id: string }) {
   const jobs = await fetchJob(props.id);
-  const blocks = JSON.parse(jobs.content).blocks;
+  //! Make Proper Error
+  if(!jobs){
+    return 
+  }
+  const blocks = JSON.parse(jobs.content as string).blocks;
   const modifedHtml = convertHtml(blocks);
 
   return (
