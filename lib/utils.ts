@@ -20,7 +20,7 @@ type htmlObjectType = {
 };
 
 export function convertHtml(htmlarray: Array<htmlObjectType>) {
-        //! Make Proper Error
+  //! Make Proper Error
 
   let newHtmlArray = htmlarray.map((html: any) => {
     switch (html.type) {
@@ -42,23 +42,18 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
         const content = html.data.content;
         content.shift();
 
-        const table = `<table class="border [&_td]:w-96 [&_td]:leading-5 [&_td]:px-4 [&_td]:py-2">
+        const table = `<table class="border-collapse w-full border border-slate-400 bg-white text-md shadow-sm">
           <thead>
             <tr>
-              ${headers
-                .map(
-                  (head: string) =>
-                    `<th class="py-2 border px-4 text-start text-lg font-semibold">${head}</th>`
-                )
-                .join("")}
+              ${headers.map((head: string) => `<td class="border py-4 px-3 font-semibold text-xl border-slate-300">${head}</td>`).join("")}
             </tr>
           </thead>
           <tbody >
           ${content
             .map((row: Array<string>, rowIdx: Number) => {
-              const rows = `<tr class="border">
+              const rows = `<tr>
              ${row
-               .map((headers) => `<td key=${rowIdx} >${headers}</td>`)
+               .map((headers) => `<td key=${rowIdx} class="border py-2 px-3  text-[#262626] border-slate-300" >${headers}</td>`)
                .join(" ")}
              </tr>
             `;

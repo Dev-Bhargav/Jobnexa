@@ -2,13 +2,13 @@ import { toast } from "@/components/ui/use-toast";
 import { State } from "@/lib/serverActions";
 import React, { useEffect } from "react";
 
-export default function FormSubmit({
-  state,
-  verifyEmail,
-}: {
-  state: State;
-  verifyEmail: () => void;
+export default function FormSubmit(props: {
+  state: State,
+  verifyEmail: () => void
 }) {
+  console.log(props)
+  const {state, verifyEmail} = props
+
   useEffect(() => {
 
     if (!state.errors) {
@@ -22,7 +22,7 @@ export default function FormSubmit({
   return (
     <button
       type="submit"
-      className="bg-black text-white py-1 rounded-sm px-4 flex font-medium"
+      className="mt-2 py-1 rounded-sm px-4 flex font-medium bg-black text-white "
     >
       Subscribe
     </button>

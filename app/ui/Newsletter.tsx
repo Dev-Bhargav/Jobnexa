@@ -47,12 +47,12 @@ export default function Newsletter() {
         </p>
       </div>
       <form action={dispatch} id="subscribeMail" className="flex items-start">
-        <div className="flex flex-col gap-2 items-start">
+        <div className="flex flex-col gap-1 items-center">
           <input
             type="text"
             name="name"
             placeholder="Name"
-            className="bg-[#F3F3F3] placeholder:text-[#898989] py-2 rounded-l pl-2 md:w-96  outline-none border-[#B3B3B3] border"
+            className=" py-1.5 rounded-l pl-2 md:w-80 text-[15px] outline-none  border border-[#dfdfdc] bg-[#f7f7f4] placeholder:text-[#898989]"
             aria-describedby="name-error"
           />
           <div id="name-error" aria-live="polite" aria-atomic="true">
@@ -67,7 +67,7 @@ export default function Newsletter() {
             type="text"
             name="email"
             placeholder="Enter the email..."
-            className="bg-[#F3F3F3] placeholder:text-[#898989] py-2 rounded-l pl-2 md:w-96  outline-none border-[#B3B3B3] border"
+            className=" py-1.5 rounded-l pl-2 md:w-80 text-[15px] outline-none  border border-[#dfdfdc] bg-[#f7f7f4] placeholder:text-[#898989]"
             aria-describedby="email.error"
           />
           {state.errors?.email &&
