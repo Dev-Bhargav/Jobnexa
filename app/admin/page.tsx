@@ -57,7 +57,7 @@ export default function Editor() {
               async uploadByFile(file: File) {
                 let formData = new FormData();
                 formData.append("file", file);
-                let response = await fetch("http://localhost:3000/api/upload", {
+                let response = await fetch(`${process.env.NEXT_PUBLIC_VAR_URL}/api/upload`, {
                   method: "POST",
                   body: formData,
                 });

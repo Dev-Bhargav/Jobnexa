@@ -187,7 +187,7 @@ export async function handleFormSubmit(
                                 <table class="heading_block block-8" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                   <tr>
                                     <td class="pad">
-                                      <h1 style="margin: 0; color: #9573ff; direction: ltr; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size: 38px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0; mso-line-height-alt: 45.6px;"><span class="tinyMce-placeholder"><a href="http://localhost:3000" target="_blank" style="text-decoration: underline; color: #9686d1;" rel="noopener">http://localhost:3000</a></span></h1>
+                                      <h1 style="margin: 0; color: #9573ff; direction: ltr; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size: 38px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0; mso-line-height-alt: 45.6px;"><span class="tinyMce-placeholder"><a href=${process.env.NEXT_PUBLIC_VAR_URL} target="_blank" style="text-decoration: underline; color: #9686d1;" rel="noopener">Website</a></span></h1>
                                     </td>
                                   </tr>
                                 </table>
@@ -440,7 +440,7 @@ export async function subscribeUser(prevState: State, formdata: FormData) {
       await sendMail(
         email,
         "Email Verification",
-        `http://localhost:3000/api/subscribe/${token.token}`
+        `${process.env.NEXT_PUBLIC_VAR_URL}/api/subscribe/${token.token}`
       );
       return {
         message: null,

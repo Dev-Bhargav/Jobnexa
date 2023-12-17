@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: 1,
       file: {
-        url: `http://localhost:3000/uploads/${file.name}`,
+        url: `${process.env.NEXT_PUBLIC_VAR_URL}/uploads/${file.name}`,
       },
     });
   } catch (error) {
