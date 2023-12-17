@@ -20,7 +20,7 @@ export default function Navbar() {
           })}
           onClick={sideNavActive}
         />
-        <Link href="/">
+        <Link href="/" aria-label="Logo">
           <svg
             width="213"
             height="30"

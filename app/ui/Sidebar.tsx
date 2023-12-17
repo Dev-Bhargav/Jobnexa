@@ -17,7 +17,7 @@ export default function Sidebar() {
         className={cn(
           "h-full w-full absolute pointer-events-none xl:hidden",
           {
-            "bg-black/50 backdrop-blur-[2px] pointer-events-auto": !navState,
+            "bg-background/80 backdrop-blur-sm pointer-events-auto": !navState,
           }
         )}
       ></div>
@@ -30,7 +30,7 @@ export default function Sidebar() {
           }
         )}
       >
-        <div className="w-[200px] sm:w-[250px] xl:w-[200px] h-full absolute ">
+        <div className="w-[200px] sm:w-[250px] xl:w-[200px] h-full absolute">
           <div className="flex flex-col text-[#6F6D6D]">
             <div className="flex py-4 px-4 justify-between items-center">
               <h1 className="text-sm font-semibold tracking-wide">

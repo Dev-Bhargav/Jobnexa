@@ -10,7 +10,7 @@ interface AppContextType{
 export const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export default function ContextProvider({children}:{children : React.ReactNode}) {
-    const [navState, setNavState] = useState<boolean>(false)
+    const [navState, setNavState] = useState<boolean>(true)
   return (
     <AppContext.Provider value={{navState, setNavState}}>
       {children}

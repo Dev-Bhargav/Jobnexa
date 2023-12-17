@@ -30,7 +30,7 @@ export default function Newsletter() {
     errors: {},
     message: "Inital Message",
     userFound: false,
-    email: "",
+
   };
 
   const [state, dispatch] = useFormState(subscribeUser, initialState);
@@ -85,7 +85,6 @@ export default function Newsletter() {
             isOpen={isOpen}
             handleButtonClick={handleButtonClick}
             fowardedRef={modalRef}
-            verifyMail={state.email ? state.email : "your email"}
           />
 
           <FormSubmit verifyEmail={handleButtonClick} state={state} />

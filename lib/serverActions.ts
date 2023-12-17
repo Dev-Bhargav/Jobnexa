@@ -360,14 +360,14 @@ export async function handleFormSubmit(
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "maxspidy5406@gmail.com",
-    pass: "yeib qkxq wzxi fdln",
+    user: process.env.EMAIL_ID,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
 export async function sendMail(to: string, subject: string, template: string) {
   const mailOptions = {
-    from: "maxspidy5406@gmail.com",
+    from: process.env.EMAIL_ID,
     to,
     subject,
     text: template,
@@ -394,8 +394,6 @@ export type State = {
   };
   message?: string | null,
   userFound?: boolean | null,
-  email?: string 
-
 };
 
 export async function subscribeUser(prevState: State, formdata: FormData) {
@@ -447,8 +445,8 @@ export async function subscribeUser(prevState: State, formdata: FormData) {
       return {
         message: null,
         errors: undefined,
-        email
       };
+      
     }else{
       return {
         message: "Already User",
