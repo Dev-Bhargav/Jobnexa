@@ -12,7 +12,7 @@ export default function Navbar() {
     setNavState((preActive: boolean) => !preActive);
   }
   return (
-    <nav className="w-full py-1.5 pr-4 pl-2 flex justify-between items-center border-b border-b-[#E2E2E1] bg-white">
+    <nav className="w-full py-3 pr-4 pl-2 flex justify-between items-center border-b border-b-[#E2E2E1] bg-white">
       <div className="flex items-center gap-2">
         <AlignJustify
           className={cn("text-[#737478] mx-1 cursor-pointer", {

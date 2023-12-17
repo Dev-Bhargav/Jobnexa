@@ -417,7 +417,11 @@ export async function subscribeUser(prevState: State, formdata: FormData) {
     const alredyUser = await prisma.user.findUnique({
       where: {
         email,
+        AND: {
+          subscribed: true,
+        }
       },
+      
     });
 
     if (!alredyUser) {

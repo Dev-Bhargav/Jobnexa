@@ -12,7 +12,7 @@ export default async function Detail(props: { id: string }) {
   const modifedHtml = convertHtml(blocks);
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 ">
       {modifedHtml.map((html, i) => (
         <div
           key={i}

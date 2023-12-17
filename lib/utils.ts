@@ -42,10 +42,10 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
         const content = html.data.content;
         content.shift();
 
-        const table = `<table class="border-collapse w-full border border-slate-400 bg-white text-md shadow-sm">
+        const table = `<table class="border-collapse border border-slate-400 bg-white text-md shadow-sm">
           <thead>
             <tr>
-              ${headers.map((head: string) => `<td class="border py-4 px-3 font-semibold text-xl border-slate-300">${head}</td>`).join("")}
+              ${headers.map((head: string) => `<td class="border py-3 px-3 font-medium text-lg border-slate-300">${head}</td>`).join("")}
             </tr>
           </thead>
           <tbody >
