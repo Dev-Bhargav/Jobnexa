@@ -26,15 +26,15 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background antialiased overflow-x-hidden",
+          "h-screen overflow-hidden relative bg-background",
           inter.className
         )}
       >
         <ContextProvider>
-          <section className="min-h-screen">
-            <main className="min-h-screen flex">
+          <section className="w-full">
+            <main className="h-screen flex">
               <Sidebar />
-              <div className="flex-grow max-w-full overflow-x-hidden xl:overflow-y-hidden">
+              <div className="w-full overflow-x-hidden xl:overflow-y-hidden">
                 <Navbar />
                 <div className="py-5 xl:px-4 flex flex-col items-center justify-evenly overflow-y-auto xl:flex-row xl:items-start xl:h-[calc(100vh-49px)]">
                   {children}

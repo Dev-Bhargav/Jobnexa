@@ -24,13 +24,13 @@ export default function Sidebar() {
       <div
 
         className={cn(
-          "w-[45vw] sm:w-[30vw] xl:w-[200px] h-full flex-shrink-0 bg-[#FBFBFB] border border-[#E2E2E1] transition-[width] transition[min-width] duration-300 xl:relative absolute overflow-hidden pointer-events-auto",
+          "w-[45vw] sm:w-[30vw] xl:w-[200px] h-full flex-shrink-0 bg-[#FBFBFB] border border-[#E2E2E1] transition-[width]  duration-300 xl:relative absolute overflow-hidden pointer-events-auto",
           {
             "xl:w-0 sm:w-0 w-0": navState,
           }
         )}
       >
-        <div className="w-[45vw] sm:w-[30vw] xl:w-[200px] h-full absolute  ">
+        <div className="w-[45vw] sm:w-[30vw] xl:w-[200px] h-full absolute ">
           <div className="flex flex-col text-[#6F6D6D]">
             <div className="flex py-4 px-4 justify-between items-center">
               <h1 className="text-sm font-semibold tracking-wide">
