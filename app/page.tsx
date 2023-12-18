@@ -1,6 +1,10 @@
 import Blog from "./ui/Blog";
 import Quicknav from "./ui/Quicknav";
 
+export const fetchCache = "no-store"
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default function Home() {
   return (
     <>
