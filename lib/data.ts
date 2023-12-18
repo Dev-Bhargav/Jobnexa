@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
+
 export async function fetchJobs() {
   try {
     const jobs = await prisma.jobs.findMany({
