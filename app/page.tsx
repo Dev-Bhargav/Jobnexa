@@ -1,11 +1,7 @@
 import Blog from "./ui/Blog";
 import Quicknav from "./ui/Quicknav";
 
-<<<<<<< HEAD
 export const fetchCache = "force-no-store"
-=======
-export const fetchCache = "no-store"
->>>>>>> 72ad936d7657ab7f2bed427f9998ae4f3c495c66
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
