@@ -39,6 +39,7 @@ export default function RootLayout({
                 <Navbar />
                 <div className="py-5 xl:px-4 flex flex-col items-center justify-evenly overflow-y-auto xl:flex-row xl:items-start xl:h-[calc(100vh-49px)]">
                   {children}
+                  <SpeedInsights/>
                 </div>
               </div>
             </main>
