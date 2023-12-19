@@ -13,7 +13,7 @@ export default async function TypeBlog(props: { category: string}) {
     <>
       {jobs.map((job, i) => (
         <div key={i} className="px-3 py-2 bg-[#FBFBFB] border border-[#E2E2E1] rounded-sm">
-          <h1 className="text-xl font-semibold">
+          <h1 className="text-xl font-bold">
             {/* //! Correct This title database */}
             {job.title.charAt(0).toUpperCase() + job.title.slice(1)}
           </h1>

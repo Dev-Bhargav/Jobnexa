@@ -13,16 +13,16 @@ export default async function Blog() {
     <>
       {jobs.map((job, i) => (
         <div key={i} className="px-3 py-2 bg-[#FBFBFB] border border-[#E2E2E1] rounded-sm">
-          <h1 className="text-lg leading-5 sm:leading-6 sm:text-xl font-semibold">
+          <h1 className="text-lg leading-5 sm:leading-6 sm:text-xl font-bold">
             {/* //! Correct This title database */}
             {job.title.charAt(0).toUpperCase() + job.title.slice(1)}
           </h1>
-          <p className="text-[#5A5A5A] xs:text-sm xs:leading-4 sm:text-base sm:leading-5 text-opacity-80 py-1">
+          <p className="text-[#5A5A5A] xs:text-sm xs:leading-4 sm:text-base sm:leading-5 text-opacity-80 py-1.5">
             {/* //! Correct This description database */}
             {job.description.charAt(0).toUpperCase() + job.description.slice(1)}
             
           </p>
-          <div className="mt-2 flex items-center justify-between">
+          <div className="mt-1 flex items-center justify-between">
             <p className="flex gap-1 items-center text-sm font-medium text-[#6F6D6D]">
               <Clock size={15} strokeWidth={2.5} />
               {job.created_at.toDateString().slice(4)}

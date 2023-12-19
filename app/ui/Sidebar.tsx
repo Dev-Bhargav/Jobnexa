@@ -93,6 +93,14 @@ export default function Sidebar() {
                 <ShieldHalf size={20} />
                 Defence Jobs
               </Link>
+              <Link
+                href="/dev"
+                className="flex px-4 gap-3 hover:bg-[#eee] select-none"
+                onClick={sideNavActive}
+              >
+                <ShieldHalf size={20} />
+                Dev Note
+              </Link>
             </div>
           </div>
         </div>
