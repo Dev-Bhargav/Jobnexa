@@ -20,7 +20,7 @@ export default async function Blog() {
           <p className="text-[#5A5A5A] xs:text-sm xs:leading-4 sm:text-base sm:leading-5 text-opacity-80 py-1">
             {/* //! Correct This description database */}
             {job.description.charAt(0).toUpperCase() + job.description.slice(1)}
-            ..
+            
           </p>
           <div className="mt-2 flex items-center justify-between">
             <p className="flex gap-1 items-center text-sm font-medium text-[#6F6D6D]">

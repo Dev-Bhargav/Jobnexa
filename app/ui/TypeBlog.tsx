@@ -20,7 +20,7 @@ export default async function TypeBlog(props: { category: string}) {
           <p className="text-[#5A5A5A] leading-5 text-opacity-80 py-1">
             {/* //! Correct This description database */}
             {job.description.charAt(0).toUpperCase() + job.description.slice(1)}
-            ..
+            
           </p>
           <div className="mt-1 flex items-center justify-between">
             <p className="flex gap-1 items-center text-sm font-medium text-[#6F6D6D]">

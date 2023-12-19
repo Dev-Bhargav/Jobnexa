@@ -90,22 +90,3 @@ type BlogContent = {
   date: string;
   category: string;
 };
-
-export async function createBlog<Type extends BlogContent>(data: Type) {
-  try {
-    await prisma.jobs.create({
-      data: {
-        title: data.title,
-        description: data.description,
-        content: JSON.stringify(data.content),
-        category: data.category,
-      },
-    });
-    return "Success";
-  } catch (err) {
-    console.error("Error fetching blogs 2:", err);
-    return "Error in create blog";
-  } finally {
-    prisma.$disconnect;
-  }
-}

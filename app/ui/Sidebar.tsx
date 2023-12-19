@@ -51,7 +51,7 @@ export default function Sidebar() {
                 Home
               </Link>
               <Link
-                href="/jobs/govt"
+                href="/govt"
                 className="flex px-4 gap-3 hover:bg-[#eee] select-none"
                 onClick={sideNavActive}
               >
@@ -70,7 +70,7 @@ export default function Sidebar() {
                 Govt Jobs
               </Link>
               <Link
-                href="/jobs/railway"
+                href="/railway"
                 className="flex px-4 gap-3 hover:bg-[#eee] select-none"
                 onClick={sideNavActive}
               >
@@ -78,7 +78,7 @@ export default function Sidebar() {
                 Railway Jobs
               </Link>
               <Link
-                href="/jobs/bank"
+                href="/bank"
                 className="flex px-4 gap-3 hover:bg-[#eee] select-none"
                 onClick={sideNavActive}
               >
@@ -86,7 +86,7 @@ export default function Sidebar() {
                 Bank Jobs
               </Link>
               <Link
-                href="/jobs/defence"
+                href="/defence"
                 className="flex px-4 gap-3 hover:bg-[#eee] select-none"
                 onClick={sideNavActive}
               >
