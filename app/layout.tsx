@@ -7,6 +7,7 @@ import Navbar from "@/app/ui/Navbar";
 import Sidebar from "@/app/ui/Sidebar";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function RootLayout({
                 <div className="py-5 xl:px-4 flex flex-col items-center justify-evenly overflow-y-auto xl:flex-row xl:items-start xl:h-[calc(100vh-49px)]">
                   {children}
                   <SpeedInsights/>
+                  <Analytics />
                 </div>
               </div>
             </main>
