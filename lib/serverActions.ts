@@ -2,7 +2,6 @@
 
 import nodemailer from "nodemailer";
 import { prisma } from "./prisma";
-import { randomUUID } from "crypto";
 import { z } from "zod";
 
 
