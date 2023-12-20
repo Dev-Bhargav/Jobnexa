@@ -8,6 +8,7 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Jobs {
@@ -17,6 +18,7 @@ model Jobs {
   created_at  DateTime @default(now())
   content     Json
   category    String
+  slug        String    
 }
 
 model User {

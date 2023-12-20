@@ -2,16 +2,16 @@ import { Clock} from "lucide-react";
 import React from "react";
 import Link from "next/link";
 import { fetchJobs } from "@/lib/data";
+import { Jobs } from "@prisma/client";
 
-export default async function Blog() {
-  let jobs = await fetchJobs();
-  if (!jobs) {
-    //TODO: Throw Proper Error
-    throw new Error("No jobs found");
-  }
+
+export default async function Blog({data}:{
+  data: Jobs[]
+}) {
+
   return (
     <>
-      {jobs.map((job, i) => (
+      {data.map((job, i) => (
         <div key={i} className="px-3 py-2 bg-[#FBFBFB] border border-[#E2E2E1] rounded-sm">
           <h1 className="text-lg leading-5 sm:leading-6 sm:text-xl font-bold">
             {/* //! Correct This title database */}
@@ -27,7 +27,7 @@ export default async function Blog() {
               <Clock size={15} strokeWidth={2.5} />
               {job.created_at.toDateString().slice(4)}
             </p>
-            <Link href={`/job/${job.title}/${job.id}`}>
+            <Link href={`/job/${job.slug.replace(/\s/g, "-")}/${job.id}`}>
               <button className="bg-black rounded-sm text-white font-medium px-3 py-0.5 flex items-center gap-1">
                 Read More
               </button>

@@ -5,21 +5,25 @@ import React from "react";
 export default async function Detail(props: { id: string }) {
   const jobs = await fetchJob(props.id);
   //! Make Proper Error
-  if(!jobs){
-    return 
+  if (!jobs) {
+    return;
   }
   const blocks = JSON.parse(jobs.content as string).blocks;
   const modifedHtml = convertHtml(blocks);
-
   return (
-    <div className="flex flex-col gap-5 ">
-      {modifedHtml.map((html, i) => (
-        <div
-          key={i}
-          className="[&_a]:text-blue-700 [&_a]:underline [&_a]:decoration-blue-500"
-          dangerouslySetInnerHTML={{ __html: html }}
-        ></div>
-      ))}
-    </div>
+    <>
+      <h1 className="xs:text-2xl xs:leading-[26px] sm:text-4xl text-[#2D2B2B] font-black my-4">
+        {jobs.title}
+      </h1>
+      <div className="flex flex-col gap-5 ">
+        {modifedHtml.map((html, i) => (
+          <div
+            key={i}
+            className="[&_a]:text-blue-700 [&_a]:underline [&_a]:decoration-blue-500"
+            dangerouslySetInnerHTML={{ __html: html }}
+          ></div>
+        ))}
+      </div>
+    </>
   );
 }

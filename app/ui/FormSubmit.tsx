@@ -3,20 +3,23 @@ import { State } from "@/lib/serverActions";
 import React, { useEffect } from "react";
 
 export default function FormSubmit(props: {
-  state: State,
-  verifyEmail: () => void
+  state: State;
+  verifyEmail: () => void;
 }) {
-  const {state, verifyEmail} = props
+  const { state, verifyEmail } = props;
 
   useEffect(() => {
-
     if (!state.errors) {
       verifyEmail();
     }
     {
-      state.userFound && toast({ title: 'This email address is already subscribed.', variant: "success"});
+      state.userFound &&
+        toast({
+          title: "This email address is already subscribed.",
+          variant: "success",
+        });
     }
-  }, [state]);
+  }, [state, verifyEmail]);
 
   return (
     <button

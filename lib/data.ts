@@ -1,14 +1,14 @@
-import { PrismaClient } from "@prisma/client";
-import { withAccelerate } from "@prisma/extension-accelerate";
-const prisma = new PrismaClient().$extends(withAccelerate());
-
+import { Jobs } from "@prisma/client";
+import { prisma } from "./prisma";
+import { QuickNavJobs } from "./definations";
 
 export async function fetchJobs() {
   try {
-    const jobs = await prisma.jobs.findMany({
+    const jobs: Jobs[] = await prisma.jobs.findMany({
       orderBy: {
         created_at: "desc",
       },
+      cacheStrategy: { swr: 5, ttl: 60 },
     });
     return jobs;
   } catch (err) {
@@ -20,7 +20,7 @@ export async function fetchJobs() {
 
 export async function quickNavFetch() {
   try {
-    const jobs = await prisma.jobs.findMany({
+    const jobs: QuickNavJobs[] = await prisma.jobs.findMany({
       select: {
         id: true,
         title: true,
@@ -33,7 +33,7 @@ export async function quickNavFetch() {
     });
     return jobs;
   } catch (err) {
-    console.log(err);
+    console.error("Error fetching jobs:", err);
   } finally {
     await prisma.$disconnect();
   }
@@ -41,7 +41,7 @@ export async function quickNavFetch() {
 
 export async function fetchJobsByCategory(category: string) {
   try {
-    const jobs = await prisma.jobs.findMany({
+    const jobs: Jobs[] = await prisma.jobs.findMany({
       where: {
         category: category,
       },
@@ -59,34 +59,20 @@ export async function fetchJobsByCategory(category: string) {
 
 export async function fetchJob(jobId: string) {
   try {
-    const jobs = await prisma.jobs.findUnique({
+    const job: Jobs | null = await prisma.jobs.findUnique({
       where: {
         id: jobId,
       },
+      cacheStrategy: { swr: 20, ttl: 20 },
     });
-  //! Make Proper Error
-    if(!jobs){
+    //! Make Proper Error
+    if (!job) {
       throw new Error("Job not found: ");
     }
-    return jobs;
+    return job;
   } catch (err) {
     console.log(err);
   } finally {
     await prisma.$disconnect();
   }
 }
-
-interface Content {
-  time: number;
-  blocks: Array<Record<string, string | object>>;
-  version: string;
-}
-
-type BlogContent = {
-  title: string;
-  description: string;
-  slug: string;
-  content: Content;
-  date: string;
-  category: string;
-};
