@@ -63,7 +63,7 @@ export async function fetchJob(jobId: string) {
       where: {
         id: jobId,
       },
-      cacheStrategy: { swr: 20, ttl: 20 },
+      cacheStrategy: { swr: 5, ttl: 60 },
     });
     //! Make Proper Error
     if (!job) {
