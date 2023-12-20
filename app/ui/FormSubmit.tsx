@@ -19,7 +19,7 @@ export default function FormSubmit(props: {
           variant: "success",
         });
     }
-  }, [state, verifyEmail]);
+  }, [state]);
 
   return (
     <button

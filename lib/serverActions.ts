@@ -3,6 +3,7 @@
 import nodemailer from "nodemailer";
 import { prisma } from "./prisma";
 import { z } from "zod";
+import { randomUUID } from "crypto";
 
 
 export async function sendMail(to: string, subject: string, template: string) {
@@ -71,25 +72,25 @@ export async function subscribeUser(prevState: State, formdata: FormData) {
     });
 
     if (!alredyUser) {
-      // const user = await prisma.user.create({
-      //   data: {
-      //     email,
-      //     name,
-      //   },
-      // });
+      const user = await prisma.user.create({
+        data: {
+          email,
+          name,
+        },
+      });
 
-      // const token = await prisma.activatToken.create({
-      //   data: {
-      //     token: `${randomUUID()}`.replace(/-/g, ""),
-      //     userId: user.id,
-      //   },
-      // });
+      const token = await prisma.activatToken.create({
+        data: {
+          token: `${randomUUID()}`.replace(/-/g, ""),
+          userId: user.id,
+        },
+      });
 
-      // await sendMail(
-      //   email,
-      //   "Email Verification",
-      //   `${process.env.NEXT_PUBLIC_VAR_URL}/api/subscribe/${token.token}`
-      // );
+      await sendMail(
+        email,
+        "Email Verification",
+        `${process.env.NEXT_PUBLIC_VAR_URL}/api/subscribe/${token.token}`
+      );
       return {
         message: null,
         errors: undefined,
