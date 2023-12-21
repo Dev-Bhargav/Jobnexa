@@ -8,7 +8,7 @@ export async function GET() {
   let jobs = await prisma.jobs.findMany({
     cacheStrategy: {
       ttl: 60,
-      swr: 5,
+      swr: 10,
     },
   }); 
 
