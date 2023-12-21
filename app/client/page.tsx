@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/edge`, { cache: "no-store" });
+        const response = await fetch(`${process.env.NEXT_PUBLIC_VAR_URL}/api/edge`, { cache: "no-store" });
         const data = await response.json();
         console.log(data);
         setJobs(data);
