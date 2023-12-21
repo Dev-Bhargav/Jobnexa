@@ -29,6 +29,7 @@ export async function quickNavFetch() {
       orderBy: {
         created_at: "desc",
       },
+      cacheStrategy:{swr: 5, ttl: 60},
       take: 4,
     });
     return jobs;

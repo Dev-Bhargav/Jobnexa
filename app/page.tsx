@@ -1,11 +1,14 @@
 import { fetchJobs } from "@/lib/data";
 import Blog from "./ui/Blog";
 import Quicknav from "./ui/Quicknav";
+import { Jobs } from "@prisma/client";
 
-export const dynamic = 'force-dynamic'
+
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const jobs = await fetchJobs();
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VAR_URL}/api/alljobs`);
+  const jobs: Jobs[] = await response.json()
   if (!jobs) {
     //TODO: Throw Proper Error
     throw new Error("No jobs found");

@@ -5,6 +5,7 @@ import { fetchJobs } from "@/lib/data";
 import { Jobs } from "@prisma/client";
 
 
+
 export default async function Blog({data}:{
   data: Jobs[]
 }) {
