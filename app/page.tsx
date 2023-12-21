@@ -5,7 +5,7 @@ import Quicknav from "./ui/Quicknav";
 export default async function Home() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_VAR_URL}/api/alljobs`,
-    { next: { revalidate: false } }
+    { next: { revalidate: 20 } }
   );
   const jobs: Jobs[] = await response.json();
   if (!jobs) {
