@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient().$extends(withAccelerate())
 
-export const fetchCache = 'force-no-cache';
+export const fetchCache = 'force-no-store';
 export const revalidate = 0
 
 export async function GET() {
