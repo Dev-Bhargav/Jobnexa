@@ -1,19 +1,11 @@
-import { PrismaClient } from "@prisma/client";
-import { withAccelerate } from "@prisma/extension-accelerate";
+import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
-
-const prisma = new PrismaClient().$extends(withAccelerate())
 
 export const fetchCache = 'force-no-store';
 export const revalidate = 0
 
 export async function GET() {
-  let jobs = await prisma.jobs.findMany({
-    cacheStrategy: {
-      ttl: 60,
-      swr: 10,
-    },
-  }); 
+  let jobs = await prisma.jobs.findMany(); 
 
   return NextResponse.json(jobs, { status: 200 });
 }

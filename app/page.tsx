@@ -3,7 +3,7 @@ import Blog from "./ui/Blog";
 import Quicknav from "./ui/Quicknav";
 
 export default async function Home() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_VAR_URL}/api/edge`, {cache: "no-store"});
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VAR_URL}/api/serverless`, {cache: "no-store"});
   const jobs: Jobs[] = await response.json();
   if (!jobs) {
     //TODO: Throw Proper Error
