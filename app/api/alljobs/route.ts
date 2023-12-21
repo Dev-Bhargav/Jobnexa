@@ -5,11 +5,12 @@ export const runtime = "edge";
 export const dynamic = 'force-dynamic'
 
 export async function GET() {
-  const jobs = await prisma.user.findMany({
+  let jobs = await prisma.jobs.findMany({
     cacheStrategy: {
       ttl: 60,
       swr: 5,
     },
-  });
+  }); 
+
   return NextResponse.json(jobs, { status: 200 });
 }

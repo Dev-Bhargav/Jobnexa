@@ -4,8 +4,6 @@ import Link from "next/link";
 import { fetchJobs } from "@/lib/data";
 import { Jobs } from "@prisma/client";
 
-
-
 export default async function Blog({data}:{
   data: Jobs[]
 }) {
@@ -26,7 +24,7 @@ export default async function Blog({data}:{
           <div className="mt-1 flex items-center justify-between">
             <p className="flex gap-1 items-center text-sm font-medium text-[#6F6D6D]">
               <Clock size={15} strokeWidth={2.5} />
-              {job.created_at.toDateString().slice(4)}
+              {new Date(job.created_at).toDateString().slice(4)}
             </p>
             <Link href={`/job/${job.slug.replace(/\s/g, "-")}/${job.id}`}>
               <button className="bg-black rounded-sm text-white font-medium px-3 py-0.5 flex items-center gap-1">
