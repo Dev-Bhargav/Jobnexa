@@ -1,7 +1,6 @@
-import { fetchJobs } from "@/lib/data";
+import { Jobs } from "@prisma/client";
 import Blog from "./ui/Blog";
 import Quicknav from "./ui/Quicknav";
-import { Jobs } from "@prisma/client";
 
 
 export const dynamic = "force-dynamic";
