@@ -1,10 +1,9 @@
 import { Clock} from "lucide-react";
 import React from "react";
 import Link from "next/link";
-import { fetchJobs } from "@/lib/data";
 import { Jobs } from "@prisma/client";
 
-export default async function Blog({data}:{
+export default function Blog({data}:{
   data: Jobs[]
 }) {
 

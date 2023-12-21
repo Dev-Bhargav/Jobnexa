@@ -1,6 +1,8 @@
+import Blog from "@/app/ui/Blog";
+import Quicknav from "@/app/ui/Quicknav";
 import { Jobs } from "@prisma/client";
-import Blog from "./ui/Blog";
-import Quicknav from "./ui/Quicknav";
+
+export const runtime = "edge"
 
 export default async function Home() {
   const response = await fetch(`${process.env.NEXT_PUBLIC_VAR_URL}/api/edge`, {cache: "no-store"});
@@ -17,7 +19,7 @@ export default async function Home() {
         </h1>
         <Blog data={jobs} />
       </div>
-      <Quicknav />
+      {/* <Quicknav /> */}
     </>
   );
 }
