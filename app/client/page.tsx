@@ -1,10 +1,8 @@
 "use client";
 
 import { Jobs } from "@prisma/client";
-
 import { useEffect, useState } from "react";
 import Blog from "../ui/Blog";
-import Quicknav from "../ui/Quicknav";
 
 export default function Home() {
   const [jobs, setJobs] = useState<Jobs[] | []>([]);
