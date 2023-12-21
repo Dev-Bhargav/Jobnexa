@@ -8,7 +8,6 @@ export async function fetchJobs() {
       orderBy: {
         created_at: "desc",
       },
-      cacheStrategy: { swr: 5, ttl: 60 },
     });
     return jobs;
   } catch (err) {
@@ -29,7 +28,7 @@ export async function quickNavFetch() {
       orderBy: {
         created_at: "desc",
       },
-      cacheStrategy:{swr: 5, ttl: 60},
+
       take: 4,
     });
     return jobs;
@@ -64,7 +63,6 @@ export async function fetchJob(jobId: string) {
       where: {
         id: jobId,
       },
-      cacheStrategy: { swr: 5, ttl: 60 },
     });
     //! Make Proper Error
     if (!job) {
