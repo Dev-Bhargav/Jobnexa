@@ -4,6 +4,7 @@ import React from "react";
 
 export default async function Detail(props: { id: string }) {
   const jobs = await fetchJob(props.id);
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   //! Make Proper Error
   if (!jobs) {
     return;

@@ -17,7 +17,6 @@ export default async function Home() {
         </h1>
         <Blog data={jobs} />
       </div>
-      <Quicknav />
     </>
   );
 }
