@@ -1,6 +1,10 @@
 import { revalidatePath } from "next/cache";
+import { NextResponse } from "next/server";
 
 export function GET() {
   revalidatePath("/", "layout");
-  console.log("I RAN")
+  return NextResponse.json(
+    { revalidated: "all paths revalidated" },
+    { status: 200 }
+  );
 }

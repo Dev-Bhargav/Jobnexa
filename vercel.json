@@ -1,8 +1,8 @@
 {
   "crons": [
     {
-      "path": "https://www.jobnexa.in/api/cron",
-      "schedule": "23 9 * * *"
+      "path": "/api/cron",
+      "schedule": "32 9 * * *"
     }
   ]
 }
