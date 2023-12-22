@@ -1,14 +1,14 @@
-import { Jobs } from "@prisma/client";
 import Blog from "./ui/Blog";
 import Quicknav from "./ui/Quicknav";
+import { fetchJobs } from "@/lib/data";
 
 export default async function Home() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_VAR_URL}/api/serverless`, {cache: "no-store"});
-  const jobs: Jobs[] = await response.json();
+  const jobs = await fetchJobs()
   if (!jobs) {
     //TODO: Throw Proper Error
     throw new Error("No jobs found");
   }
+  
   return (
     <>
       <div className="w-4/5 max-w-[920px] min-w-[330px] xl:w-3/4 xl:px-10 flex gap-3 flex-col">

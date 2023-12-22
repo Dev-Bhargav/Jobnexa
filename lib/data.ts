@@ -8,7 +8,14 @@ export async function fetchJobs() {
       orderBy: {
         created_at: "desc",
       },
+      cacheStrategy: {
+        swr: 60,
+        ttl: 21600,
+      },
     });
+    if (!jobs) {
+      throw new Error("No jobs found");
+    }
     return jobs;
   } catch (err) {
     console.log(err);
@@ -62,6 +69,10 @@ export async function fetchJob(jobId: string) {
     const job: Jobs | null = await prisma.jobs.findUnique({
       where: {
         id: jobId,
+      },
+      cacheStrategy: {
+        swr: 30,
+        ttl: 21600,
       },
     });
     //! Make Proper Error
