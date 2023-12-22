@@ -2,8 +2,6 @@ import Quicknav from "@/app/ui/Quicknav";
 import { fetchJobsByCategory } from "@/lib/data";
 import Blog from "../ui/Blog";
 
-export const revalidate = 30
-
 export default async function Home({
   params,
 }: {

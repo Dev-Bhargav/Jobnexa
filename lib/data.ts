@@ -9,8 +9,8 @@ export async function fetchJobs() {
         created_at: "desc",
       },
       cacheStrategy: {
-        swr: 60,
-        ttl: 21600,
+        swr: 5,
+        ttl: 20,
       },
     });
     if (!jobs) {
