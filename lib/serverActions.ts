@@ -4,6 +4,7 @@ import nodemailer from "nodemailer";
 import { prisma } from "./prisma";
 import { z } from "zod";
 import { randomUUID } from "crypto";
+import { revalidatePath } from "next/cache";
 
 
 export async function sendMail(to: string, subject: string, template: string) {

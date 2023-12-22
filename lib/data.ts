@@ -10,7 +10,7 @@ export async function fetchJobs() {
       },
       cacheStrategy: {
         swr: 5,
-        ttl: 10,
+        ttl: 20,
       },
     });
     if (!jobs) {
