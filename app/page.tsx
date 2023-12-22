@@ -2,6 +2,8 @@ import Blog from "./ui/Blog";
 import Quicknav from "./ui/Quicknav";
 import { fetchJobs } from "@/lib/data";
 
+export const revalidate = 10
+
 export default async function Home() {
   const jobs = await fetchJobs()
   if (!jobs) {
