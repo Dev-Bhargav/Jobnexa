@@ -26,7 +26,7 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
     switch (html.type) {
       case "header":
         if (html.data.level === 2) {
-          return `<h2 class="text-xl font-bold">${html.data.text}</h2>`;
+          return `<h2 class="font-bold" style="font-size: 20px">${html.data.text}</h2>`;
         }
         return `<h${html.data.level}>${html.data.text}</h${html.data.level}>`;
       case "paragraph":
@@ -59,10 +59,9 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
       case "image":
         return `<img src="${html.data.file.url}"  />`;
       case "list":
-        console.log(html)
         const list = html.data.items.map((listitem:string) =>{
           return `<ul class="ml-3">
-            <li class="list-disc">${listitem}</li>
+            <li class="mx-4" style="list-style-type: disc">${listitem}</li>
           </ul>`
         })
         return list
