@@ -32,39 +32,40 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
       case "paragraph":
         return `<p>${html.data.text}</p>`;
       case "table":
-        //! Make Proper Error
-
-        if (!html.data.content) {
+        if (html.data.withHeadings) {
         }
-        let headers = html.data.content[0];
-        headers = headers.filter((value: string) => value !== "");
-
+        //! Make Proper Error
         const content = html.data.content;
-        content.shift();
-
-        const table = `<table class="border-collapse border border-slate-400 bg-white text-md shadow-sm">
-          <thead>
-            <tr>
-              ${headers.map((head: string) => `<td class="border py-3 px-3 font-medium text-lg border-slate-300">${head}</td>`).join("")}
-            </tr>
-          </thead>
-          <tbody >
-          ${content
-            .map((row: Array<string>, rowIdx: Number) => {
-              const rows = `<tr>
-             ${row
-               .map((headers) => `<td key=${rowIdx} class="border py-2 px-3  text-[#262626] border-slate-300" >${headers}</td>`)
-               .join(" ")}
-             </tr>
-            `;
-              return rows;
-            })
-            .join(" ")}
-          </tbody>
-        </table>`;
+        const table = `<table class="w-full border-collapse border border-slate-400 bg-white text-md shadow-sm">
+            <tbody >
+            ${content
+              .map((row: Array<string>, rowIdx: Number) => {
+                const rows = `<tr>
+               ${row
+                 .map(
+                   (values) =>
+                     `<td key=${rowIdx} class="border py-2 px-3 text-[#262626] border-slate-300" >${values}</td>`
+                 )
+                 .join(" ")}
+               </tr>
+              `;
+                return rows;
+              })
+              .join(" ")}
+            </tbody>
+          </table>`;
         return table;
+
       case "image":
         return `<img src="${html.data.file.url}"  />`;
+      case "list":
+        console.log(html)
+        const list = html.data.items.map((listitem:string) =>{
+          return `<ul class="ml-3">
+            <li class="list-disc">${listitem}</li>
+          </ul>`
+        })
+        return list
       default:
         return "work";
     }
