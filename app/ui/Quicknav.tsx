@@ -66,7 +66,7 @@ export default async function Quicknav() {
                 <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
                 <div className="w-full">
                   <h1 className="text-2xl text-[#2D2B2B] font-bold">
-                    Latest Govt Jobs
+                    Latest Defence Jobs
                   </h1>
                   <div className="mt-3 w-11/12 mx-auto">
                     <Link
