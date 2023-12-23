@@ -1,6 +1,5 @@
-import Blog from "./ui/Blog";
-import Quicknav from "./ui/Quicknav";
 import { fetchJobs } from "@/lib/data";
+import Blog from "./ui/Blog";
 
 export default async function Home() {
   const jobs = await fetchJobs();
@@ -8,7 +7,6 @@ export default async function Home() {
     //TODO: Throw Proper Error
     throw new Error("No jobs found");
   }
-
   return (
     <>
       <div className="w-4/5 max-w-[920px] min-w-[330px] xl:w-3/4 xl:px-10 flex gap-3 flex-col">

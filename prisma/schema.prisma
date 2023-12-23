@@ -20,20 +20,3 @@ model Jobs {
   category    String
   slug        String    
 }
-
-model User {
-  id           String         @id @default(uuid())
-  email        String         @unique
-  name         String
-  subscribed   Boolean        @default(false)
-  ActivatToken ActivatToken[]
-}
-
-model ActivatToken {
-  id          String    @id @default(uuid())
-  token       String    @unique
-  activatedAt DateTime?
-  createdAt   DateTime  @default(now())
-  user        User      @relation(fields: [userId], references: [id])
-  userId      String
-}
