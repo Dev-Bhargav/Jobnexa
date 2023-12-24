@@ -2,7 +2,7 @@ import { Jobs } from "@prisma/client";
 import { prisma } from "./prisma";
 import { QuickNavJobs } from "./definations";
 
-export async function fetchJobs() {
+export async function fetchLatestJobs() {
   try {
     const jobs: Jobs[] = await prisma.jobs.findMany({
       orderBy: {
@@ -12,6 +12,7 @@ export async function fetchJobs() {
         swr: 5,
         ttl: 20,
       },
+      take: 4
     });
     if (!jobs) {
       throw new Error("No jobs found");

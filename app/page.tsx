@@ -1,12 +1,13 @@
-import { fetchJobs } from "@/lib/data";
+import { fetchLatestJobs } from "@/lib/data";
 import Blog from "./ui/Blog";
+import AllJobs from "./ui/AllJobs";
 
-export const metadata={
-  title: "Jobnexa"
-}
+export const metadata = {
+  title: "Jobnexa",
+};
 
 export default async function Home() {
-  const jobs = await fetchJobs();
+  const jobs = await fetchLatestJobs();
   if (!jobs) {
     //TODO: Throw Proper Error
     throw new Error("No jobs found");
@@ -15,9 +16,13 @@ export default async function Home() {
     <>
       <div className="w-4/5 max-w-[920px] min-w-[330px] xl:w-3/4 xl:px-10 flex gap-3 flex-col">
         <h1 className="text-3xl sm:text-4xl text-[#2D2B2B] font-black my-4">
-          All Jobs
+          Latest Jobs
         </h1>
         <Blog data={jobs} />
+        <h1 className="text-3xl sm:text-4xl text-[#2D2B2B] font-black my-4">
+          All jobs
+        </h1>
+        <AllJobs initialJobs={jobs} />
       </div>
     </>
   );
