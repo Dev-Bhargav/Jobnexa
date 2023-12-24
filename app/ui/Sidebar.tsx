@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronsLeft, Home, Landmark, ShieldHalf, Train } from "lucide-react";
+import { ChevronsLeft, Computer, Home, Landmark, ShieldHalf, Train } from "lucide-react";
 import Link from "next/link";
 import { useAppContext } from "../Context/store";
 import { cn } from "@/lib/utils";
@@ -98,7 +98,7 @@ export default function Sidebar() {
                 className="flex px-4 gap-3 hover:bg-[#eee] select-none"
                 onClick={sideNavActive}
               >
-                <ShieldHalf size={20} />
+                <Computer size={20} />
                 Dev Note
               </Link>
             </div>

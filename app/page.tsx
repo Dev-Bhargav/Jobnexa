@@ -20,7 +20,7 @@ export default async function Home() {
         </h1>
         <Blog data={jobs} />
         <h1 className="text-3xl sm:text-4xl text-[#2D2B2B] font-black my-4">
-          All jobs
+          All Jobs
         </h1>
         <AllJobs initialJobs={jobs} />
       </div>

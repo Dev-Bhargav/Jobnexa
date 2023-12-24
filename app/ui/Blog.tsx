@@ -11,7 +11,7 @@ export default function Blog({data}:{
     <>
       {data.map((job, i) => (
         <div key={i} className="px-3 py-2 bg-[#FBFBFB] border border-[#E2E2E1] rounded-sm">
-          <h1 className="text-lg leading-5 sm:leading-6 font-bold">
+          <h1 className="md:text-xl leading-5 sm:leading-6 font-bold">
             {/* //! Correct This title database */}
             {job.title.charAt(0).toUpperCase() + job.title.slice(1)}
           </h1>
@@ -20,13 +20,13 @@ export default function Blog({data}:{
             {job.description.charAt(0).toUpperCase() + job.description.slice(1)}
             
           </p>
-          <div className="mt-2 flex items-center justify-between">
-            <p className="flex gap-1 items-center text-sm font-medium text-[#6F6D6D]">
+          <div className="mt-3 flex items-center justify-between">
+            <p className="flex gap-1 items-center text-xs md:text-sm font-semibold md:font-medium text-[#6F6D6D]">
               <Clock size={15} strokeWidth={2.5} />
               {new Date(job.created_at).toDateString().slice(4)}
             </p>
             <Link href={`/job/${job.slug.replace(/\s/g, "-")}/${job.id}`}>
-              <button className="bg-black rounded-sm text-white font-medium px-3 py-0.5 flex items-center gap-1">
+              <button className="bg-black rounded-sm text-white font-medium px-2 py-0.5 flex items-center gap-1 text-sm md:text-base">
                 Read More
               </button>
             </Link>

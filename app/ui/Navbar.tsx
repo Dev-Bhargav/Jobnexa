@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { AlignJustify, Search } from "lucide-react";
+import { AlignJustify } from "lucide-react";
 import Link from "next/link";
 import { useAppContext } from "../Context/store";
 
@@ -22,7 +22,7 @@ export default function Navbar() {
         />
         <Link href="/" aria-label="Logo">
           <svg
-            width="180"
+            className="w-[150px] lg:w-[190px]"
             height="36"
             viewBox="0 0 180 36"
             fill="none"
