@@ -11,7 +11,6 @@ export default function Blog({data}:{
     <>
       {data.map((job, i) => (
         <div key={i} className="px-3 py-2 bg-[#FBFBFB] border border-[#E2E2E1] rounded-sm">
-          <p>{job.id}</p>
           <h1 className="text-lg leading-5 sm:leading-6 font-bold">
             {/* //! Correct This title database */}
             {job.title.charAt(0).toUpperCase() + job.title.slice(1)}
