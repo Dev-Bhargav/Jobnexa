@@ -18,7 +18,7 @@ export default function AllJobs({ initialJobs }: { initialJobs: Jobs[] }) {
       console.log(skip.current);
       const response = await (
         await fetch(
-          `http://localhost:3000/api/morejobs?skip=${skip.current}&limit=${limit}`
+          `/api/morejobs?skip=${skip.current}&limit=${limit}`
         )
       ).json();
       if (response?.length) {
