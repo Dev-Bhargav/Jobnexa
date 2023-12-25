@@ -98,7 +98,7 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
           return `<ul class="ml-3">
             <li class="mx-4" style="list-style-type: disc">${listitem}</li>
           </ul>`;
-        });
+        }).join("");
         return list;
       default:
         return "work";
