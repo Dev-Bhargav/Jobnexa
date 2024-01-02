@@ -60,7 +60,7 @@ export default async function Quicknav() {
           <div className="w-11/12">
             <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
             <h1 className="text-2xl text-[#2D2B2B] font-bold">
-              Latest Govt Jobs
+              Latest Bank Jobs
             </h1>
             {jobs
               .filter((job) => job.category === "bank")
@@ -83,7 +83,7 @@ export default async function Quicknav() {
           <div className="w-11/12">
             <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
             <h1 className="text-2xl text-[#2D2B2B] font-bold">
-              Latest Govt Jobs
+              Latest Defence Jobs
             </h1>
             {jobs
               .filter((job) => job.category === "defence")
