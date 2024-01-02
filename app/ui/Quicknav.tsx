@@ -1,25 +1,25 @@
 import { quickNavFetch } from "@/lib/data";
 import Link from "next/link";
+
 export default async function Quicknav() {
   const jobs = await quickNavFetch();
   //! Make Proper Error
   if (!jobs) {
     throw new Error("No jobs available");
   }
-
   return (
     <div className="w-4/5 max-w-[920px] min-w-[330px] xl:w-1/2 2xl:max-w-[620px] mt-20 border rounded-sm border-[rgb(226,226,225)] bg-[#FBFBFB] ">
       <div className="mt-10 xl:w-full flex flex-col items-center">
         <div className="w-full px-4 flex flex-col items-center my-5">
-          {jobs
-            .filter((job) => job.category === "govt")
-            .map((job, index, array) => (
-              <div key={index} className="w-11/12">
-                <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
-                <div className="w-full">
-                  <h1 className="text-2xl text-[#2D2B2B] font-bold">
-                    Latest Govt Jobs
-                  </h1>
+          <div className="w-11/12">
+            <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
+            <h1 className="text-2xl text-[#2D2B2B] font-bold">
+              Latest Govt Jobs
+            </h1>
+            {jobs
+              .filter((job) => job.category === "govt")
+              .map((job, index, array) => (
+                <div key={index} className="w-full">
                   <div className="mt-3 w-11/12 mx-auto">
                     <Link
                       href={`/job/${job.title}/${job.id}`}
@@ -32,18 +32,17 @@ export default async function Quicknav() {
                     )}
                   </div>
                 </div>
-              </div>
-            ))}
-
-          {jobs
-            .filter((job) => job.category === "railway")
-            .map((job, index, array) => (
-              <div key={index} className="w-11/12">
-                <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
-                <div className="w-full">
-                  <h1 className="text-2xl text-[#2D2B2B] font-bold">
-                    Latest Railway Jobs
-                  </h1>
+              ))}
+          </div>
+          <div className="w-11/12">
+            <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
+            <h1 className="text-2xl text-[#2D2B2B] font-bold">
+              Latest Railway Jobs
+            </h1>
+            {jobs
+              .filter((job) => job.category === "railway")
+              .map((job, index, array) => (
+                <div key={index} className="w-full">
                   <div className="mt-3 w-11/12 mx-auto">
                     <Link
                       href={`/job/${job.title}/${job.id}`}
@@ -56,18 +55,17 @@ export default async function Quicknav() {
                     )}
                   </div>
                 </div>
-              </div>
-            ))}
-
-          {jobs
-            .filter((job) => job.category === "defence")
-            .map((job, index, array) => (
-              <div key={index} className="w-11/12">
-                <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
-                <div className="w-full">
-                  <h1 className="text-2xl text-[#2D2B2B] font-bold">
-                    Latest Defence Jobs
-                  </h1>
+              ))}
+          </div>
+          <div className="w-11/12">
+            <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
+            <h1 className="text-2xl text-[#2D2B2B] font-bold">
+              Latest Govt Jobs
+            </h1>
+            {jobs
+              .filter((job) => job.category === "bank")
+              .map((job, index, array) => (
+                <div key={index} className="w-full">
                   <div className="mt-3 w-11/12 mx-auto">
                     <Link
                       href={`/job/${job.title}/${job.id}`}
@@ -80,17 +78,17 @@ export default async function Quicknav() {
                     )}
                   </div>
                 </div>
-              </div>
-            ))}
-          {jobs
-            .filter((job) => job.category === "bank")
-            .map((job, index, array) => (
-              <div key={index} className="w-11/12">
-                <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
-                <div className="w-full">
-                  <h1 className="text-2xl text-[#2D2B2B] font-bold">
-                    Latest Railway Jobs
-                  </h1>
+              ))}
+          </div>
+          <div className="w-11/12">
+            <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
+            <h1 className="text-2xl text-[#2D2B2B] font-bold">
+              Latest Govt Jobs
+            </h1>
+            {jobs
+              .filter((job) => job.category === "defence")
+              .map((job, index, array) => (
+                <div key={index} className="w-full">
                   <div className="mt-3 w-11/12 mx-auto">
                     <Link
                       href={`/job/${job.title}/${job.id}`}
@@ -103,8 +101,8 @@ export default async function Quicknav() {
                     )}
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
       </div>
     </div>
