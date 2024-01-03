@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: {
     default:
       "Latest free job alert for govt jobs, railway jobs, bank jobs, defence jobs | Jobnexa",
-    template: `%s | Jobnexa`
+    template: `%s | Jobnexa`,
   },
   description:
     "Stay updated with free job alerts: government, railway, bank, and defense opportunities. Your job awaits!",
@@ -33,6 +33,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="QSrAOhoyk0L3iQcdhRFFwDPkdnHCRSObFHGgbgSzCSg"
+        />
+      </head>
       <body
         className={cn(
           "h-screen overflow-hidden relative bg-background",
