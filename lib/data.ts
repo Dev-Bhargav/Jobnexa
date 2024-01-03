@@ -69,11 +69,7 @@ export async function fetchJob(jobId: string) {
     const job: Jobs | null = await prisma.jobs.findUnique({
       where: {
         id: jobId,
-      },
-      cacheStrategy: {
-        swr: 30,
-        ttl: 21600,
-      },
+      }
     });
     //! Make Proper Error
     if (!job) {

@@ -2,9 +2,6 @@ import { fetchLatestJobs } from "@/lib/data";
 import Blog from "./ui/Blog";
 import AllJobs from "./ui/AllJobs";
 
-export const metadata = {
-  title: "Jobnexa",
-};
 
 export default async function Home() {
   const jobs = await fetchLatestJobs();
