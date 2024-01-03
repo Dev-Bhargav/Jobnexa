@@ -1,28 +1,34 @@
 import Detail from "@/app/ui/Detail";
 import { fetchJob } from "@/lib/data";
 
-export async function generateMetadata({params}:{
-  params:{
-    id : string
-  }
-}){
-  try{
-    const job = await fetchJob(params.id)
-    if(!job){
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    id: string;
+    slug: string;
+  };
+}) {
+  try {
+    const job = await fetchJob(params.id);
+    if (!job) {
       return {
         title: "Not Found",
-        description: "The page you are looking for does not exist"
-      }
+        description: "The page you are looking for does not exist",
+      };
     }
     return {
       title: job.title,
-      description: job.description
-    }
-  }catch(err){
+      description: job.description,
+      alternates: {
+        canonical: `/job/${params.slug}/${params.id}`,
+      },
+    };
+  } catch (err) {
     return {
       title: "Not Found",
-      description: "The page you are looking for does not exist"
-    }
+      description: "The page you are looking for does not exist",
+    };
   }
 }
 

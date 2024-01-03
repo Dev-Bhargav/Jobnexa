@@ -6,18 +6,24 @@ import "./globals.css";
 import Navbar from "@/app/ui/Navbar";
 import Sidebar from "@/app/ui/Sidebar";
 import { Toaster } from "@/components/ui/toaster";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import Quicknav from "./ui/Quicknav";
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap"
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Latest free job alert for govt jobs, railway jobs, bank jobs, defence jobs | Jobnexa",
-  description: "Stay updated with free job alerts: government, railway, bank, and defense opportunities. Your job awaits!",
+  metadataBase: new URL("https://www.jobnexa.in"),
+  title: {
+    default:
+      "Latest free job alert for govt jobs, railway jobs, bank jobs, defence jobs | Jobnexa",
+    template: `%s | Jobnexa`
+  },
+  description:
+    "Stay updated with free job alerts: government, railway, bank, and defense opportunities. Your job awaits!",
 };
 
 export default function RootLayout({
@@ -42,7 +48,7 @@ export default function RootLayout({
                 <div className="py-5 xl:px-4 flex flex-col items-center justify-evenly overflow-y-auto xl:flex-row xl:items-start xl:h-[calc(100vh-49px)]">
                   {children}
                   <Quicknav />
-                  <SpeedInsights/>
+                  <SpeedInsights />
                   <Analytics />
                 </div>
               </div>
