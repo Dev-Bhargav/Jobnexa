@@ -31,6 +31,7 @@ export async function quickNavFetch() {
       select: {
         id: true,
         title: true,
+        slug: true,
         category: true,
       },
       orderBy: {
@@ -80,5 +81,14 @@ export async function fetchJob(jobId: string) {
     console.log(err);
   } finally {
     await prisma.$disconnect();
+  }
+}
+
+export async function fetchAllJobs(){
+  try{
+    const jobs = await prisma.jobs.findMany()
+    return jobs
+  }catch(err){
+    console.log(err)
   }
 }

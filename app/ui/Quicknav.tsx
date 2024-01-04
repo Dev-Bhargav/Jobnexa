@@ -22,7 +22,7 @@ export default async function Quicknav() {
                 <div key={index} className="w-full">
                   <div className="mt-3 w-11/12 mx-auto">
                     <Link
-                      href={`/job/${job.title}/${job.id}`}
+                      href={`/job/${job.slug.replace(/\s+/g, "-")}/${job.id}`}
                       className="text-[#3E3E3E] leading-5 hover:underline hover:text-black"
                     >
                       {job.title}
@@ -45,7 +45,7 @@ export default async function Quicknav() {
                 <div key={index} className="w-full">
                   <div className="mt-3 w-11/12 mx-auto">
                     <Link
-                      href={`/job/${job.title}/${job.id}`}
+                      href={`/job/${job.slug.replace(/\s+/g, "-")}/${job.id}`}
                       className="text-[#3E3E3E] leading-5 hover:underline hover:text-black"
                     >
                       {job.title}
@@ -68,7 +68,7 @@ export default async function Quicknav() {
                 <div key={index} className="w-full">
                   <div className="mt-3 w-11/12 mx-auto">
                     <Link
-                      href={`/job/${job.title}/${job.id}`}
+                      href={`/job/${job.slug.replace(/\s+/g, "-")}/${job.id}`}
                       className="text-[#3E3E3E] leading-5 hover:underline hover:text-black"
                     >
                       {job.title}
@@ -91,7 +91,7 @@ export default async function Quicknav() {
                 <div key={index} className="w-full">
                   <div className="mt-3 w-11/12 mx-auto">
                     <Link
-                      href={`/job/${job.title}/${job.id}`}
+                      href={`/job/${job.slug.replace(/\s+/g, "-")}/${job.id}`}
                       className="text-[#3E3E3E] leading-5 hover:underline hover:text-black"
                     >
                       {job.title}

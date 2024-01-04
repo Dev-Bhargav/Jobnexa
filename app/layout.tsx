@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   },
   description:
     "Stay updated with free job alerts: government, railway, bank, and defense opportunities. Your job awaits!",
+  other: {
+    "google-site-verification": "QSrAOhoyk0L3iQcdhRFFwDPkdnHCRSObFHGgbgSzCSg",
+  },
 };
 
 export default function RootLayout({
@@ -33,12 +36,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta
-          name="google-site-verification"
-          content="QSrAOhoyk0L3iQcdhRFFwDPkdnHCRSObFHGgbgSzCSg"
-        />
-      </head>
       <body
         className={cn(
           "h-screen overflow-hidden relative bg-background",
