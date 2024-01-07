@@ -13,7 +13,7 @@ export default async function Detail(props: { id: string }) {
   const modifedHtml = convertHtml(blocks);
   return (
     <>
-      <h1 className="xs:text-2xl xs:leading-[26px] sm:text-4xl text-[#2D2B2B] font-black my-4">
+      <h1 className="xs:text-2xl xs:leading-[26px] sm:text-4xl text-[#2D2B2B] font-black">
         {jobs.title}
       </h1>
       <div className="flex flex-col gap-5 [&_a]:text-blue-700 [&_a]:underline [&_a]:decoration-blue-500">

@@ -1,6 +1,13 @@
 "use client";
 
-import { ChevronsLeft, Computer, Home, Landmark, ShieldHalf, Train } from "lucide-react";
+import {
+  ChevronsLeft,
+  Computer,
+  Home,
+  Landmark,
+  ShieldHalf,
+  Train,
+} from "lucide-react";
 import Link from "next/link";
 import { useAppContext } from "../Context/store";
 import { cn } from "@/lib/utils";
@@ -10,21 +17,16 @@ export default function Sidebar() {
   function sideNavActive() {
     setNavState((preActive: boolean) => !preActive);
   }
-
   return (
     <>
       <div
-        className={cn(
-          "h-full w-full absolute pointer-events-none xl:hidden",
-          {
-            "bg-background/80 backdrop-blur-sm pointer-events-auto": !navState,
-          }
-        )}
+        className={cn("h-full w-full absolute z-10 pointer-events-none xl:hidden", {
+          "bg-background/80 backdrop-blur-sm pointer-events-auto": !navState,
+        })}
       ></div>
       <div
-
         className={cn(
-          "w-[200px] sm:w-[250px] xl:w-[200px] h-full flex-shrink-0 bg-[#FBFBFB] border border-[#E2E2E1] transition-[width]  duration-300 xl:relative absolute overflow-hidden pointer-events-auto",
+          "w-[200px] h-screen sm:w-[250px] xl:w-[200px] flex-shrink-0 bg-[#FBFBFB] border border-[#E2E2E1] transition-[width]  duration-300 xl:sticky top-0 fixed z-10 overflow-hidden pointer-events-auto",
           {
             "xl:w-0 sm:w-0 w-0": navState,
           }
@@ -37,7 +39,7 @@ export default function Sidebar() {
                 CATEGORIES
               </h1>
               <ChevronsLeft
-                className=" cursor-pointer"
+                className="cursor-pointer"
                 onClick={sideNavActive}
               />
             </div>

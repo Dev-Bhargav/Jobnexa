@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import Quicknav from "./ui/Quicknav";
+import JobContextProvider from "./Context/JobContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,27 +37,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          "h-screen overflow-hidden relative bg-background",
-          inter.className
-        )}
-      >
+      <body className={cn("relative", inter.className)}>
         <ContextProvider>
-          <section className="w-full">
-            <main className="h-screen flex">
+          <JobContextProvider>
+            <div className="flex">
               <Sidebar />
-              <div className="w-full overflow-x-hidden xl:overflow-y-hidden">
+              <div className="w-full relative">
                 <Navbar />
-                <div className="py-5 xl:px-4 flex flex-col items-center justify-evenly overflow-y-auto xl:flex-row xl:items-start xl:h-[calc(100vh-49px)]">
+                <div className="py-5 xl:px-4 flex flex-col items-center justify-evenly xl:flex-row xl:items-start">
                   {children}
                   <Quicknav />
                   <SpeedInsights />
                   <Analytics />
                 </div>
               </div>
-            </main>
-          </section>
+            </div>
+          </JobContextProvider>
         </ContextProvider>
         <Toaster />
       </body>
