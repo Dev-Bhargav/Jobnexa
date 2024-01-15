@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { AlignJustify } from "lucide-react";
 import Link from "next/link";
-import { useAppContext } from "../Context/store";
 import { useEffect, useState } from "react";
+import { useAppContext } from "../Context/store";
 
 export default function Navbar() {
   const { navState, setNavState } = useAppContext();
