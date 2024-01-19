@@ -1,7 +1,7 @@
 import { quickNavFetch } from "@/lib/data";
 import Link from "next/link";
 
-export default async function Quicknav() {
+export default async function QuickNav() {
   const jobs = await quickNavFetch();
   //! Make Proper Error
   if (!jobs) {
