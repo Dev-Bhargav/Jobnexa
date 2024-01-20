@@ -8,7 +8,7 @@ import Sidebar from "@/app/ui/Sidebar";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import QuickNav from "./ui/QuickNav";
+import Quicknav from "./ui/Quicknav";
 import JobContextProvider from "./Context/JobContext";
 import Footer from "./ui/Footer";
 
@@ -47,7 +47,7 @@ export default function RootLayout({
                 <Navbar />
                 <div className="py-5 xl:px-4 flex flex-col items-center justify-evenly xl:flex-row xl:items-start">
                   {children}
-                  <QuickNav />
+                  <Quicknav />
                   <SpeedInsights />
                   <Analytics />
                 </div>

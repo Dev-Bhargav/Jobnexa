@@ -1,4 +1,4 @@
-export type QuickNavJobs = {
+export type QuicknavJobs = {
     id : string,
     title: string,
     slug: string,

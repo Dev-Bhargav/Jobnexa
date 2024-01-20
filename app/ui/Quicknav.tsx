@@ -1,8 +1,8 @@
-import { quickNavFetch } from "@/lib/data";
+import { QuicknavFetch } from "@/lib/data";
 import Link from "next/link";
 
-export default async function QuickNav() {
-  const jobs = await quickNavFetch();
+export default async function Quicknav() {
+  const jobs = await QuicknavFetch();
   //! Make Proper Error
   if (!jobs) {
     throw new Error("No jobs available");

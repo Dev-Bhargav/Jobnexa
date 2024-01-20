@@ -1,6 +1,6 @@
 import { Jobs } from "@prisma/client";
 import { prisma } from "./prisma";
-import { QuickNavJobs } from "./definations";
+import { QuicknavJobs } from "./definations";
 
 export async function fetchLatestJobs() {
   try {
@@ -25,9 +25,9 @@ export async function fetchLatestJobs() {
   }
 }
 
-export async function quickNavFetch() {
+export async function QuicknavFetch() {
   try {
-    const jobs: QuickNavJobs[] = await prisma.jobs.findMany({
+    const jobs: QuicknavJobs[] = await prisma.jobs.findMany({
       select: {
         id: true,
         title: true,
