@@ -113,7 +113,7 @@ export default function Footer() {
       <div className="py-3 rounded bg-[#EBEBEB] w-4/5  flex items-center justify-center">
         <h1 className="text-2xl font-black text-black">
           Contact -{" "}
-          <span className="underline text-[#7C808B]">jobnexa@gmail.com</span>
+          <span className="underline text-[#7C808B]">jobnexa.jobs@gmail.com</span>
         </h1>
       </div>
     </div>

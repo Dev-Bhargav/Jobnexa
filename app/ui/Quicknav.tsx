@@ -8,12 +8,11 @@ export default async function Quicknav() {
     throw new Error("No jobs available");
   }
   return (
-    <div className="w-4/5 max-w-[920px] min-w-[330px] xl:w-1/2 2xl:max-w-[620px] mt-20 border rounded-sm border-[rgb(226,226,225)] bg-[#FBFBFB] ">
-      <div className="mt-10 xl:w-full flex flex-col items-center">
+    <div className="w-4/5 max-w-[920px] min-w-[330px] xl:w-1/2 2xl:max-w-[620px] border rounded-sm border-[rgb(226,226,225)] bg-white">
+      <div className="xl:w-full flex flex-col items-center">
         <div className="w-full px-4 flex flex-col items-center my-5">
           <div className="w-11/12">
-            <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
-            <h1 className="text-2xl text-[#2D2B2B] font-bold">
+            <h1 className="text-xl text-[#2D2B2B] font-bold">
               Latest Govt Jobs
             </h1>
             {jobs
@@ -36,7 +35,7 @@ export default async function Quicknav() {
           </div>
           <div className="w-11/12">
             <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
-            <h1 className="text-2xl text-[#2D2B2B] font-bold">
+            <h1 className="text-xl text-[#2D2B2B] font-bold">
               Latest Railway Jobs
             </h1>
             {jobs
@@ -59,7 +58,7 @@ export default async function Quicknav() {
           </div>
           <div className="w-11/12">
             <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
-            <h1 className="text-2xl text-[#2D2B2B] font-bold">
+            <h1 className="text-xl text-[#2D2B2B] font-bold">
               Latest Bank Jobs
             </h1>
             {jobs
@@ -82,7 +81,7 @@ export default async function Quicknav() {
           </div>
           <div className="w-11/12">
             <div className="my-5 h-[1px] bg-[#E2E2E1]"></div>
-            <h1 className="text-2xl text-[#2D2B2B] font-bold">
+            <h1 className="text-xl text-[#2D2B2B] font-bold">
               Latest Defence Jobs
             </h1>
             {jobs

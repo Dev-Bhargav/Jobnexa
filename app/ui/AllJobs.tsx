@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Blog from "./Blog";
 import { useInView } from "react-intersection-observer";
-import { Jobs } from "@prisma/client";
 import { useJobs } from "../Context/JobContext";
 
 export default function AllJobs() {

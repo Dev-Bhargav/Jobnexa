@@ -10,10 +10,7 @@ export default async function Home() {
   }
   return (
     <>
-      <div className="w-4/5 max-w-[920px] min-w-[330px] xl:w-3/4 xl:px-10 flex gap-3 flex-col">
-        <h1 className="text-3xl  text-[#2D2B2B] font-black my-2">
-          Latest Jobs
-        </h1>
+      <div className="w-4/5 max-w-[920px] min-w-[330px] xl:w-3/4 xl:px-5 flex gap-3 flex-col">
         <Blog data={jobs} />
         <h1 className="text-3xl text-[#2D2B2B] font-black my-2">
           All Jobs

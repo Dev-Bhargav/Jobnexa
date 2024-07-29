@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import ContextProvider from "./Context/store";
 import "./globals.css";
 import Navbar from "@/app/ui/Navbar";
-import Sidebar from "@/app/ui/Sidebar";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
@@ -41,11 +40,10 @@ export default function RootLayout({
       <body className={cn("relative", inter.className)}>
         <ContextProvider>
           <JobContextProvider>
-            <div className="flex">
-              <Sidebar />
+            <div className="flex bg-[#FAF8FE]">
               <div className="w-full relative">
                 <Navbar />
-                <div className="py-5 xl:px-4 flex flex-col items-center justify-evenly xl:flex-row xl:items-start">
+                <div className="mt-16 xl:px-4 flex flex-col items-center justify-around xl:flex-row xl:items-start">
                   {children}
                   <Quicknav />
                   <SpeedInsights />

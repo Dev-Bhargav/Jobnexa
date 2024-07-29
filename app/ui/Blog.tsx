@@ -1,37 +1,36 @@
-import { Clock} from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 import React from "react";
 import Link from "next/link";
 import { Jobs } from "@prisma/client";
 
-export default function Blog({data}:{
-  data: Jobs[]
-}) {
-
+export default function Blog({ data }: { data: Jobs[] }) {
   return (
     <>
       {data.map((job, i) => (
-        <div key={i} className="px-3 py-2 bg-[#FBFBFB] border border-[#E2E2E1] rounded-sm">
-          <h1 className="md:text-xl leading-5 sm:leading-6 font-bold">
-            {/* //! Correct This title database */}
-            {job.title.charAt(0).toUpperCase() + job.title.slice(1)}
-          </h1>
-          <p className="text-[#5A5A5A] xs:text-sm xs:leading-4 sm:text-base sm:leading-5 text-opacity-80 py-1">
-            {/* //! Correct This description database */}
-            {job.description.charAt(0).toUpperCase() + job.description.slice(1)}
-            
-          </p>
-          <div className="mt-3 flex items-center justify-between">
-            <p className="flex gap-1 items-center text-xs md:text-sm font-semibold md:font-medium text-[#6F6D6D]">
-              <Clock size={15} strokeWidth={2.5} />
-              {new Date(job.created_at).toDateString().slice(4)}
+        <Link key={i} href={`/job/${job.slug.replace(/\s/g, "-")}/${job.id}`}>
+          <div className="px-3 py-4 bg-white border border-[#E9E9E9] rounded-sm">
+            <h1 className="md:text-xl leading-5 sm:leading-6 font-bold">
+              {job.title}
+            </h1>
+            <p className="text-[#5A5A5A] xs:text-sm xs:leading-4 sm:text-base sm:leading-5 text-opacity-80 py-1">
+              {job.description}
             </p>
-            <Link href={`/job/${job.slug.replace(/\s/g, "-")}/${job.id}`}>
-              <button className="bg-black rounded-sm text-white font-medium px-2 py-0.5 flex items-center gap-1 text-sm md:text-base">
-                Read More
-              </button>
-            </Link>
+            <div className="flex gap-5">
+              <div className="mt-3 flex items-center justify-between">
+                <p className="text-[#5A5A5A] flex gap-1 items-center text-xs md:text-sm md:font-medium">
+                  <Calendar size={18} strokeWidth={2} />
+                  {new Date(job.created_at).toDateString().slice(4)}
+                </p>
+              </div>
+              <div className="mt-3 flex items-center justify-between">
+                <p className="text-[#5A5A5A] flex gap-1 items-center text-xs md:text-sm md:font-medium">
+                  <Clock size={18} strokeWidth={2} />
+                  {new Date(job.created_at).toDateString().slice(4)}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+        </Link>
       ))}
     </>
   );
