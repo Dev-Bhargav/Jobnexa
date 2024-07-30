@@ -9,7 +9,9 @@ export default async function Home({
   };
 }) {
   const jobs = await fetchJobsByCategory(params.category);
-  if (!jobs) {
+  console.log(jobs)
+
+  if (!jobs?.length) {
     //TODO: Throw Proper Error
     throw new Error("No jobs found");
   }

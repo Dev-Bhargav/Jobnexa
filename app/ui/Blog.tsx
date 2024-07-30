@@ -8,8 +8,8 @@ export default function Blog({ data }: { data: Jobs[] }) {
     <>
       {data.map((job, i) => (
         <Link key={i} href={`/job/${job.slug.replace(/\s/g, "-")}/${job.id}`}>
-          <div className="px-3 py-4 bg-white border border-[#E9E9E9] rounded-sm">
-            <h1 className="md:text-xl leading-5 sm:leading-6 font-bold">
+          <div className="px-3 py-4 bg-white border border-[#E9E9E9] transition duration-200 rounded-sm hover:shadow-md">
+            <h1 className=" leading-[21.6px] font-bold py-1 text-lg md:text-xl md:leading-[24px]">
               {job.title}
             </h1>
             <p className="text-[#5A5A5A] xs:text-sm xs:leading-4 sm:text-base sm:leading-5 text-opacity-80 py-1">

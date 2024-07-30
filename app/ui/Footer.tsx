@@ -6,7 +6,7 @@ export default function Footer() {
     <div className="border-t border-gray-200 h-[300px] mt-10 flex flex-col items-center justify-center gap-5 rounded-t-lg">
       <div className="h-2/3 flex items-center justify-evenly">
         <div className="w-1/3">
-          <h1 className="text-[#878889] text-2xl font-bold">About</h1>
+          <h1 className="text-[#000000] text-2xl font-bold">About</h1>
           <p className="text-[#7C808B] font-semibold text-lg leading-5 pt-2">
             Welcome to jobnexa! We are your go-to for job updates. Our short and
             easy-to-read blog posts will keep you in the know about the latest
@@ -73,19 +73,23 @@ export default function Footer() {
           <div>
             <ul className="text-[#7C808B] text-lg mt-2 flex gap-3 font-semibold">
               <li>
-                <Link href="/">Home</Link>
+                <Link href="/" className="hover:text-[#b37af8] transition duration-200 ease-in-out">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link href="/govt">Govt Jobs</Link>
+                <Link href="/govt" className="hover:text-[#b37af8] transition duration-200 ease-in-out">
+                  Govt Jobs
+                </Link>
               </li>
               <li>
-                <Link href="/railway">Railway Jobs</Link>
+                <Link href="/railway" className="hover:text-[#b37af8] transition duration-200 ease-in-out">Railway Jobs</Link>
               </li>
               <li>
-                <Link href="/bank">Bank Jobs</Link>
+                <Link href="/bank" className="hover:text-[#b37af8] transition duration-200 ease-in-out">Bank Jobs</Link>
               </li>
               <li>
-                <Link href="/defence">Defence Jobs</Link>
+                <Link href="/defence" className="hover:text-[#b37af8] transition duration-200 ease-in-out">Defence Jobs</Link>
               </li>
             </ul>
           </div>
@@ -113,7 +117,9 @@ export default function Footer() {
       <div className="py-3 rounded bg-[#EBEBEB] w-4/5  flex items-center justify-center">
         <h1 className="text-2xl font-black text-black">
           Contact -{" "}
-          <span className="underline text-[#7C808B]">jobnexa.jobs@gmail.com</span>
+          <span className="underline text-[#7C808B]">
+            jobnexa.jobs@gmail.com
+          </span>
         </h1>
       </div>
     </div>

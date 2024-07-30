@@ -41,19 +41,21 @@ export default function Navbar() {
           }
         )}
       >
-        <div className="h-full w-[2px] bg-[#E9E9E9] absolute left-44"></div>
+        <div className="h-full w-[2px] bg-[#E9E9E9] absolute left-56"></div>
 
         <Link href="/" aria-label="Logo">
-          <h1 className={cn("text-3xl", bowlbyOneSC.className)}>JOBNEXA</h1>
+          <h1 className={cn("text-4xl p-1", bowlbyOneSC.className)}>JOBNEXA</h1>
         </Link>
 
         <nav>
           <ul className="flex gap-7 text-sm">
-            <li className="cursor-pointer">Home</li>
-            <li className="cursor-pointer">Jobs</li>
-            <li className="cursor-pointer">Exam</li>
-            <li className="cursor-pointer">About Us</li>
-            <li className="cursor-pointer">Contact Us</li>
+            <Link href="/">
+              <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">Home</li>
+            </Link>
+            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">Jobs</li>
+            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">Exams</li>
+            <li className="cursor-pointer transition duration- ease-in-out hover:text-[#b37af8]">About Us</li>
+            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">Contact Us</li>
           </ul>
         </nav>
         <div className="h-full w-[2px] bg-[#E9E9E9] absolute right-20"></div>
