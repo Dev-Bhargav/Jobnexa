@@ -2,6 +2,7 @@ import { Calendar, Clock } from "lucide-react";
 import React from "react";
 import Link from "next/link";
 import { Jobs } from "@prisma/client";
+import timeAgo from "@/lib/timeAgo";
 
 export default function Blog({ data }: { data: Jobs[] }) {
   return (
@@ -18,14 +19,8 @@ export default function Blog({ data }: { data: Jobs[] }) {
             <div className="flex gap-5">
               <div className="mt-3 flex items-center justify-between">
                 <p className="text-[#5A5A5A] flex gap-1 items-center text-xs md:text-sm md:font-medium">
-                  <Calendar size={18} strokeWidth={2} />
-                  {new Date(job.created_at).toDateString().slice(4)}
-                </p>
-              </div>
-              <div className="mt-3 flex items-center justify-between">
-                <p className="text-[#5A5A5A] flex gap-1 items-center text-xs md:text-sm md:font-medium">
                   <Clock size={18} strokeWidth={2} />
-                  {new Date(job.created_at).toDateString().slice(4)}
+                  {timeAgo(job.created_at)}
                 </p>
               </div>
             </div>

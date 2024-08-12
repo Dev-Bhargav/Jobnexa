@@ -10,26 +10,26 @@ export default function AllJobs() {
   const [hasMore, setHasMore] = useState(true);
   const [ref, inView] = useInView();
 
-  const fetchMoreData = async () => {
-    try {
-      const response = await (
-        await fetch(`/api/morejobs?skip=${skip.current}&limit=${limit}`)
-      ).json();
-      if (response?.length) {
-        addJobs(response);
-      } else {
-        setHasMore(false);
-      }
-    } catch (error) {
-      console.error("Error fetching more data:", error);
-    }
-  };
-
+  
   useEffect(() => {
+    const fetchMoreData = async () => {
+      try {
+        const response = await (
+          await fetch(`/api/morejobs?skip=${skip.current}&limit=${limit}`)
+        ).json();
+        if (response?.length) {
+          addJobs(response);
+        } else {
+          setHasMore(false);
+        }
+      } catch (error) {
+        console.error("Error fetching more data:", error);
+      }
+    };
     if (inView) {
       fetchMoreData();
     }
-  }, [inView]);
+  }, [addJobs, inView, limit, skip]);
 
   return (
     <div className="flex flex-col items-center gap-5">
