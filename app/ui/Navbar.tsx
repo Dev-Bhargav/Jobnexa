@@ -50,12 +50,24 @@ export default function Navbar() {
         <nav>
           <ul className="flex gap-7 text-sm">
             <Link href="/">
-              <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">Home</li>
+              <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">
+                Home
+              </li>
             </Link>
-            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">Jobs</li>
-            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">Exams</li>
-            <li className="cursor-pointer transition duration- ease-in-out hover:text-[#b37af8]">About Us</li>
-            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">Contact Us</li>
+            <Link href="/jobs">
+              <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">
+                Jobs
+              </li>
+            </Link>
+            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">
+              Exams
+            </li>
+            <li className="cursor-pointer transition duration- ease-in-out hover:text-[#b37af8]">
+              About Us
+            </li>
+            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-[#b37af8]">
+              Contact Us
+            </li>
           </ul>
         </nav>
         <div className="h-full w-[2px] bg-[#E9E9E9] absolute right-20"></div>
