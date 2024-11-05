@@ -6,15 +6,15 @@ export default function Footer() {
     <div className="border-t border-gray-200 h-[300px] mt-10 flex flex-col items-center justify-center gap-5 rounded-t-lg">
       <div className="h-2/3 flex items-center justify-evenly">
         <div className="w-1/3">
-          <h1 className="text-[#000000] text-2xl font-bold">About</h1>
-          <p className="text-[#7C808B] font-semibold text-lg leading-5 pt-2">
+          <h1 className="text-primary text-2xl font-bold">About</h1>
+          <p className="text-secondary-foreground font-semibold text-lg leading-5 pt-2">
             Welcome to jobnexa! We are your go-to for job updates. Our short and
             easy-to-read blog posts will keep you in the know about the latest
             job openings. Discover opportunities, stay informed, and advance
             your career with us!
           </p>
         </div>
-        <div className="w-0.5 h-full bg-gray-200"></div>
+        <div className="w-0.5 h-full bg-card-foreground"></div>
         <div className="flex flex-col items-center ">
           <div>
             <Link href="/" aria-label="Logo">
@@ -71,7 +71,7 @@ export default function Footer() {
             </Link>
           </div>
           <div>
-            <ul className="text-[#7C808B] text-lg mt-2 flex gap-3 font-semibold">
+            <ul className="text-secondary-foreground text-lg mt-2 flex gap-3 font-semibold">
               <li>
                 <Link href="/" className="hover:text-[#b37af8] transition duration-200 ease-in-out">
                   Home
@@ -94,7 +94,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="pt-1">
-            <ul className="text-[#7C808B] mt-2 flex gap-3 font-semibold">
+            <ul className="text-secondary-foreground mt-2 flex gap-3 font-semibold">
               <li className="border-[1px] rounded border-[#7C808B] p-0.5">
                 <Link href="/">
                   <Instagram size={26} />
@@ -114,10 +114,10 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="py-3 rounded bg-[#EBEBEB] w-4/5  flex items-center justify-center">
+      <div className="py-3 rounded bg-secondary w-4/5  flex items-center justify-center">
         <h1 className="text-2xl font-black text-black">
           Contact -{" "}
-          <span className="underline text-[#7C808B]">
+          <span className="underline text-primary">
             jobnexa.jobs@gmail.com
           </span>
         </h1>

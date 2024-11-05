@@ -25,6 +25,10 @@ module.exports = {
     },
     extend: {
       colors: {
+        loading: {
+          DEFAULT: "hsl(var(--loading))",
+          bar: "hsl(var(--loading-bar))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

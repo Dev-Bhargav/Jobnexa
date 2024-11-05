@@ -1,10 +1,9 @@
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import ContextProvider from "./Context/store";
+import ContextProvider, { useAppContext } from "./Context/store";
 import "./globals.css";
 import Navbar from "@/app/ui/Navbar";
-import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import Quicknav from "./ui/Quicknav";
@@ -37,10 +36,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn("relative", inter.className)}>
+      <body className={cn(`relative `, inter.className)}>
         <ContextProvider>
           <JobContextProvider>
-            <div className="flex bg-[#FAF8FE]">
+            <div className="flex">
               <div className="w-full relative">
                 <Navbar />
                 <div className="mt-16 xl:px-4 flex flex-col items-center justify-around xl:flex-row xl:items-start">
@@ -54,7 +53,6 @@ export default function RootLayout({
             </div>
           </JobContextProvider>
         </ContextProvider>
-        <Toaster />
       </body>
     </html>
   );

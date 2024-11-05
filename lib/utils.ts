@@ -39,7 +39,7 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
           const content = html.data.content;
           content.shift();
 
-          const table = `<table class="border-collapse border border-slate-400 bg-white text-md shadow-sm">
+          const table = `<table class="border-collapse border border-slate-400  text-md shadow-sm">
           <thead>
             <tr>
               ${headers
@@ -57,7 +57,7 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
              ${row
                .map(
                  (headers) =>
-                   `<td key=${rowIdx} class="border py-2 px-3  text-[#262626] border-slate-300" >${headers}</td>`
+                   `<td key=${rowIdx} class="border py-2 px-3 text-[#262626] border-slate-300" >${headers}</td>`
                )
                .join(" ")}
              </tr>
@@ -70,7 +70,7 @@ export function convertHtml(htmlarray: Array<htmlObjectType>) {
           return table;
         } else {
           const content = html.data.content;
-          const table = `<table class="w-full border-collapse border border-slate-400 bg-white text-md shadow-sm">
+          const table = `<table class="w-full border-collapse border border-slate-400 text-md shadow-sm">
               <tbody >
               ${content
                 .map((row: Array<string>, rowIdx: Number) => {
