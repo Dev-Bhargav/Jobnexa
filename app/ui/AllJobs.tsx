@@ -42,7 +42,7 @@ export default function AllJobs() {
           className="h-8 w-8 rounded-full border-[6px] border-loading border-t-loading-bar animate-spin"
         ></div>
       ) : (
-        <p className="my-1">-- You have reached the end --</p>
+        <p className="text-secondary">-- You have reached the end --</p>
       )}
     </div>
   );

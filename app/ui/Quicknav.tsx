@@ -8,7 +8,7 @@ export default async function Quicknav() {
     throw new Error("No jobs available");
   }
   return (
-    <div className="w-4/5 max-w-[920px] min-w-[330px] xl:w-1/2 2xl:max-w-[620px] rounded-sm border border-card-foreground bg-card">
+    <div className="w-4/5 mt-5 md:mt-0 max-w-[920px] min-w-[330px] xl:w-1/2 2xl:max-w-[620px] rounded-sm border border-card-foreground bg-card">
       <div className="xl:w-full flex flex-col items-center">
         <div className="w-full px-4 flex flex-col items-center my-5">
           <div className="w-11/12">

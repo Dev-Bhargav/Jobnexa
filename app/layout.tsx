@@ -42,7 +42,7 @@ export default function RootLayout({
             <div className="flex">
               <div className="w-full relative">
                 <Navbar />
-                <div className="mt-16 xl:px-4 flex flex-col items-center justify-around xl:flex-row xl:items-start">
+                <div className="xs:mt-10 xl:px-4 flex flex-col items-center justify-around xl:flex-row xl:items-start">
                   {children}
                   <Quicknav />
                   <SpeedInsights />
