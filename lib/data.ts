@@ -12,7 +12,7 @@ export async function fetchLatestJobs() {
         swr: 5,
         ttl: 20,
       },
-      take: 4
+      take: 4,
     });
     if (!jobs) {
       throw new Error("No jobs found");
@@ -70,7 +70,7 @@ export async function fetchJob(jobId: string) {
     const job: Jobs | null = await prisma.jobs.findUnique({
       where: {
         id: jobId,
-      }
+      },
     });
     //! Make Proper Error
     if (!job) {
@@ -84,11 +84,40 @@ export async function fetchJob(jobId: string) {
   }
 }
 
-export async function fetchAllJobs(){
-  try{
-    const jobs = await prisma.jobs.findMany()
-    return jobs
-  }catch(err){
-    console.log(err)
+export async function fetchAllJobs() {
+  try {
+    const jobs = await prisma.jobs.findMany();
+    return jobs;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function fetchJobsBySearch(search: string) {
+  try {
+    const jobs: Jobs[] = await prisma.jobs.findMany({
+      where: {
+        OR: [
+          {
+            title: {
+              contains: search,
+            },
+          },
+          {
+            description: {
+              contains: search
+            }
+          },
+        ],
+      },
+      orderBy: {
+        created_at: "desc",
+      },
+    });
+    return jobs;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await prisma.$disconnect();
   }
 }

@@ -1,10 +1,14 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import { Bowlby_One_SC } from "next/font/google";
-import { AlignJustify, List, Moon, Search, Sun, User } from "lucide-react";
+import { AlignJustify, Moon, Sun, User } from "lucide-react";
+import NavLink from "../../components/ui/navLink";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 const bowlbyOneSC = Bowlby_One_SC({
   weight: "400",
@@ -15,13 +19,25 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [theme, setTheme] = useState<string>("light");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [searchText, setSearchText] = useState<string>("");
+
+  const router = useRouter()
 
   function switchMode() {
     const newTheme = theme === "dark" ? "light" : "dark";
     document.body.classList.toggle("dark", newTheme === "dark");
     setTheme(newTheme);
-    console.log(newTheme);
     localStorage.setItem("theme", newTheme);
+  }
+
+  function handleInputChange(event:React.ChangeEvent<HTMLInputElement>){
+    setSearchText(event.target.value);
+  }
+
+  async function handleSearchInput(event:React.KeyboardEvent<HTMLInputElement>){
+    if(event.key=== "Enter"){
+      router.push(`/search/${searchText}`)
+    }
   }
 
   function toggleMenu() {
@@ -56,8 +72,6 @@ export default function Navbar() {
           }
         )}
       >
-        {/* <div className="h-full w-[1px] bg-card-foreground absolute left-56"></div> */}
-
         <Link href="/" aria-label="Logo">
           <h1 className={cn("md:text-4xl text-3xl p-1", bowlbyOneSC.className)}>
             JOB<span className="text-accent">NEXA</span>
@@ -66,35 +80,52 @@ export default function Navbar() {
 
         <nav>
           <ul className=" hidden md:flex gap-7 text-sm">
-            <Link href="/">
+            <NavLink href="/">
               <li className="cursor-pointer transition duration-200 ease-in-out hover:text-accent">
                 Home
               </li>
-            </Link>
-            <Link href="/jobs">
+            </NavLink>
+            <NavLink href="/jobs">
               <li className="cursor-pointer transition duration-200 ease-in-out hover:text-accent">
                 Jobs
               </li>
-            </Link>
-            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-accent">
-              Exams
-            </li>
-            <li className="cursor-pointer transition duration- ease-in-out hover:text-accent">
-              About Us
-            </li>
-            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-accent">
-              Contact Us
-            </li>
+            </NavLink>
+            <NavLink href="/exams">
+              <li className="cursor-pointer transition duration-200 ease-in-out hover:text-accent">
+                Exams
+              </li>
+            </NavLink>
+            <NavLink href="/about">
+              <li className="cursor-pointer transition duration- ease-in-out hover:text-accent">
+                About Us
+              </li>
+            </NavLink>
+            <NavLink href="/contact">
+              <li className="cursor-pointer transition duration-200 ease-in-out hover:text-accent">
+                Contact Us
+              </li>
+            </NavLink>
           </ul>
         </nav>
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-2 items-center">
+          <Input className="h-8 w-36" placeholder="Search" value={searchText} onChange={handleInputChange} onKeyDown={handleSearchInput} />
+          {/* <Search color="grey" size={20} className="cursor-pointer" /> */}
+          <User color="grey" size={20} className="cursor-pointer" />
           {theme === "dark" ? (
-            <Sun onClick={switchMode} size={23} className="cursor-pointer" />
+            <Sun
+              color="grey"
+              onClick={switchMode}
+              size={24}
+              className="cursor-pointer"
+            />
           ) : (
-            <Moon onClick={switchMode} size={23} className="cursor-pointer" />
+            <Moon
+              color="grey"
+              onClick={switchMode}
+              size={24}
+              className="cursor-pointer"
+            />
           )}
-          <Search size={20} className="cursor-pointer" />
-          <User size={20} className="cursor-pointer" />
           <AlignJustify
             size={20}
             className="cursor-pointer flex md:hidden"
@@ -104,30 +135,51 @@ export default function Navbar() {
       </div>
       {/* Mobile Menu  */}
       <div
-        className={` w-full md:hidden border border-card-foreground bg-background mt-16 z-10 absolute transition-all duration-100000 ease-linear transform ${
+        className={` w-full md:hidden border border-card-foreground bg-background mt-16 z-10 absolute transition-all duration-300 ease-linear transform ${
           isOpen ? "max-h-screen opacity-100" : "max-h-0 border-none opacity-0"
         } overflow-hidden`}
       >
         <ul className="flex flex-col p-5 items-center gap-3 text-lg">
-          <Link href="/" onClick={toggleMenu}>
-            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-accent">
+          <NavLink href="/">
+            <li
+              onClick={toggleMenu}
+              className="cursor-pointer transition duration-200 ease-in-out hover:text-accent"
+            >
               Home
             </li>
-          </Link>
-          <Link href="/jobs" onClick={toggleMenu}>
-            <li className="cursor-pointer transition duration-200 ease-in-out hover:text-accent">
+          </NavLink>
+          <NavLink href="/jobs">
+            <li
+              onClick={toggleMenu}
+              className="cursor-pointer transition duration-200 ease-in-out hover:text-accent"
+            >
               Jobs
             </li>
-          </Link>
-          <li className="cursor-pointer transition duration-200 ease-in-out hover:text-accent">
-            Exams
-          </li>
-          <li className="cursor-pointer transition duration- ease-in-out hover:text-accent">
-            About Us
-          </li>
-          <li className="cursor-pointer transition duration-200 ease-in-out hover:text-accent">
-            Contact Us
-          </li>
+          </NavLink>
+          <NavLink href="/exams">
+            <li
+              onClick={toggleMenu}
+              className="cursor-pointer transition duration-200 ease-in-out hover:text-accent"
+            >
+              Exams
+            </li>
+          </NavLink>
+          <NavLink href="/about">
+            <li
+              onClick={toggleMenu}
+              className="cursor-pointer transition duration- ease-in-out hover:text-accent"
+            >
+              About Us
+            </li>
+          </NavLink>
+          <NavLink href="/contact">
+            <li
+              onClick={toggleMenu}
+              className="cursor-pointer transition duration-200 ease-in-out hover:text-accent"
+            >
+              Contact Us
+            </li>
+          </NavLink>
         </ul>
       </div>
     </nav>

@@ -9,7 +9,7 @@ export default function Blog({ data }: { data: Jobs[] }) {
     <>
       {data.map((job, i) => (
         <Link key={i} href={`/job/${job.slug.replace(/\s/g, "-")}/${job.id}`}>
-          <div className="px-3 py-4 bg-card border border-card-foreground transition duration-200 rounded-md hover:shadow-md">
+          <div className="w-full px-3 py-4 bg-card border border-card-foreground transition duration-200 rounded-md hover:shadow-md">
             <h1 className="leading-[21.6px] font-bold py-1 text-lg md:text-xl md:leading-[24px]">
               {job.title}
             </h1>
