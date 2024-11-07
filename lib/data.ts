@@ -105,8 +105,14 @@ export async function fetchJobsBySearch(search: string) {
           },
           {
             description: {
-              contains: search
-            }
+              contains: search,
+            },
+          },
+          {
+            content: {
+              path: "$",
+              string_contains: search
+            },
           },
         ],
       },
