@@ -108,7 +108,7 @@ export default function Navbar() {
           </ul>
         </nav>
         <div className="flex gap-2 items-center">
-          <Input className="h-8 w-36" placeholder="Search" value={searchText} onChange={handleInputChange} onKeyDown={handleSearchInput} />
+          <Input className="h-8 w-20 sm:w-36" placeholder="Search" value={searchText} onChange={handleInputChange} onKeyDown={handleSearchInput} />
           {/* <Search color="grey" size={20} className="cursor-pointer" /> */}
           <User color="grey" size={20} className="cursor-pointer" />
           {theme === "dark" ? (

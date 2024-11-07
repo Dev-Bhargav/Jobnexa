@@ -10,6 +10,7 @@ export default async function SearchedJobs(params: { searchedText: string }) {
   return (
     <div className="flex  flex-col items-center gap-5">
       <div className="flex w-full flex-col  gap-3" id="scrollableDiv">
+        <p>Search Result for &quot;{text}&quot;</p>
         {jobs && jobs.length>0 ? <Blog data={jobs} /> : "Nothing found"}
       </div>
     </div>
