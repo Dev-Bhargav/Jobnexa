@@ -1,5 +1,5 @@
 import React from "react";
-import SearchedJobs from "../../ui/SearchedJobs";
+import SearchedJobs from "@/app/ui/SearchedJobs";
 
 export default function Page({
   params,

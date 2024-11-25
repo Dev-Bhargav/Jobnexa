@@ -2,6 +2,8 @@ import { fetchJobsByCategory } from "@/lib/data";
 import Blog from "../ui/Blog";
 import { notFound } from "next/navigation";
 
+export const dynamicParams = false
+
 export default async function Home({
   params,
 }: {

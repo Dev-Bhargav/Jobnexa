@@ -4,13 +4,14 @@ import { fetchJob } from "@/lib/data";
 export async function generateMetadata({
   params,
 }: {
-  params: {
+  params: Promise<{
     id: string;
     slug: string;
-  };
+  }>;
 }) {
   try {
-    const job = await fetchJob(params.id);
+    const { id, slug } = await params;
+    const job = await fetchJob(id);
     if (!job) {
       return {
         title: "Not Found",
@@ -21,7 +22,7 @@ export async function generateMetadata({
       title: job.title,
       description: job.description,
       alternates: {
-        canonical: `/job/${params.slug}/${params.id}`,
+        canonical: `/job/${slug}/${id}`,
       },
     };
   } catch (err) {
@@ -32,13 +33,14 @@ export async function generateMetadata({
   }
 }
 
-export default function Page({
+export default async function Page({
   params,
 }: {
-  params: {
-    slug: string;
+  params: Promise<{
     id: string;
-  };
+    slug: string;
+  }>;
 }) {
-  return <Detail id={params.id} />;
+  const { id } = await params;
+  return <Detail id={id} />;
 }

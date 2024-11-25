@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import ContextProvider, { useAppContext } from "./Context/store";
+import ContextProvider from "./Context/store";
 import "./globals.css";
 import Navbar from "@/app/ui/Navbar";
 import { SpeedInsights } from "@vercel/speed-insights/next";

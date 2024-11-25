@@ -10,7 +10,6 @@ export default function AllJobs() {
   const [hasMore, setHasMore] = useState(true);
   const [ref, inView] = useInView();
 
-  
   useEffect(() => {
     const fetchMoreData = async () => {
       try {
@@ -42,7 +41,9 @@ export default function AllJobs() {
           className="h-8 w-8 rounded-full border-[6px] border-loading border-t-loading-bar animate-spin"
         ></div>
       ) : (
-        <p className="text-secondary-foreground">-- You have reached the end --</p>
+        <p className="text-secondary-foreground">
+          -- You have reached the end --
+        </p>
       )}
     </div>
   );

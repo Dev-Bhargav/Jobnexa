@@ -3,6 +3,7 @@ import { convertHtml } from "@/lib/utils";
 import React from "react";
 
 export default async function Detail(props: { id: string }) {
+
   const jobs = await fetchJob(props.id);
 
   //! Make Proper Error
@@ -12,7 +13,7 @@ export default async function Detail(props: { id: string }) {
   const blocks = JSON.parse(jobs.content as string).blocks;
   const modifedHtml = convertHtml(blocks);
   return (
-    <>
+    <div className="overflow-scroll xl:overflow-hidden">
       <h1 className="xs:text-2xl xs:leading-[26px] sm:text-4xl font-black">
         {jobs.title}
       </h1>
@@ -21,6 +22,6 @@ export default async function Detail(props: { id: string }) {
           <div key={i} dangerouslySetInnerHTML={{ __html: html }}></div>
         ))}
       </div>
-    </>
+    </div>
   );
 }

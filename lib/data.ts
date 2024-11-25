@@ -111,7 +111,7 @@ export async function fetchJobsBySearch(search: string) {
           {
             content: {
               path: "$",
-              string_contains: search
+              string_contains: search,
             },
           },
         ],
